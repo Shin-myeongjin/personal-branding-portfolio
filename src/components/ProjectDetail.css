@@ -1,0 +1,238 @@
+/* ProjectDetail.css */
+
+.project-detail {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    padding: 160px 0;
+}
+
+.project-inner {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 182px;
+}
+
+/* 제목 영역 */
+.project-header {
+    text-align: right;
+    margin-bottom: 40px;
+}
+
+.project-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(20px, 2.5vw, 45px);
+    line-height: 1.2;
+    letter-spacing: -0.05em;
+    text-transform: uppercase;
+    margin: 0;
+    color: #000;
+}
+
+/* 메인 콘텐츠 - 2컬럼 그리드 */
+.project-main {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 300px;
+    margin-bottom: 80px;
+}
+
+/* 왼쪽 컬럼 */
+.project-left {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 120px;
+}
+
+.project-thumbnail img {
+    width: 100%;
+    max-width: 525px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.project-description {
+    font-size: 32px;
+    line-height: 1.2;
+    color: #333;
+    margin: 0;
+    white-space: pre-line;
+    letter-spacing: -0.05em;
+    font-weight: 400;
+}
+
+/* 링크 버튼들 */
+.project-links {
+    display: flex;
+    gap: 12px;
+}
+
+.project-link {
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.project-link.outline {
+    border: 1px solid #000;
+    color: #000;
+    background: transparent;
+}
+
+
+.project-link.filled {
+    border: 1px solid #000;
+    background: #000;
+    color: #fff;
+}
+
+.project-link.filled:hover {
+    background: #333;
+    border-color: #333;
+}
+
+/* 오른쪽 컬럼 */
+.project-right {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 1038px;
+    color: #000;
+    max-width: 654px;
+}
+
+.working-photo img {
+    max-width: 654px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 칩 태그 */
+.chip-tags {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.chip-tag {
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.chip-tag.filled {
+    background: #000;
+    color: #fff;
+}
+
+.chip-tag.outline {
+    border: 1px solid #000;
+    background: transparent;
+    color: #000;
+}
+
+/* 진행도 바 */
+.progress-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.progress-label {
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.02em;
+    min-width: 80px;
+}
+
+.progress-bar {
+    flex: 1;
+    height: 14px;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 30px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #000;
+    border-radius: 30px;
+    transition: width 0.3s ease;
+}
+
+.progress-value {
+    font-size: 18px;
+    font-weight: 400;
+    min-width: 80px;
+    text-align: right;
+}
+
+/* UI 스크린샷 - 하단 */
+.ui-screenshots {
+    display: flex;
+    margin-top: 298px;
+}
+
+/* Phones 레이아웃 (기본) */
+.ui-screenshots.phones {
+    gap: 18px;
+    justify-content: left;
+}
+
+.ui-screenshots.phones .ui-screenshot:nth-child(1) {
+    margin-top: 280px;
+}
+
+.ui-screenshots.phones .ui-screenshot img {
+    width: auto;
+    max-width: 331px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* Laptop 레이아웃 */
+.ui-screenshots.laptop {
+    justify-content: left;
+    gap: 0;
+}
+
+.ui-screenshots.laptop .ui-screenshot img {
+    width: auto;
+    max-width: 550px;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+/* 반응형 (나중에) */
+@media (max-width: 768px) {
+    .project-main {
+        grid-template-columns: 1fr;
+    }
+
+    .project-inner {
+        padding: 0 24px;
+    }
+
+    .ui-screenshots {
+        flex-direction: column;
+        align-items: center;
+    }
+}
