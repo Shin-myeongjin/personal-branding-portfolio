@@ -33,7 +33,7 @@ const Header = () => {
 
     return (
         <header className="header" ref={headerRef}>
-            <div className="logo">PRESENT PORTFOLIO</div>
+            <div className="logo"><a href="#home">PRESENT PORTFOLIO</a></div>
             <nav>
                 <ul>
                     <li><a href="#about">ABOUT</a></li>

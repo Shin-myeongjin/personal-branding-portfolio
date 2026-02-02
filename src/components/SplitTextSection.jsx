@@ -5,6 +5,7 @@ import './SplitTextSection.css';
  * 재사용 가능한 큰 텍스트 섹션 컴포넌트
  * 
  * Props:
+ * - id: section의 고유 ID (앵커 링크용) - 선택사항
  * - leftTop: 왼쪽 상단 텍스트 (예: "ABOUT")
  * - leftBottom: 왼쪽 하단 텍스트 (예: "ME")
  * - rightTop: 오른쪽 상단 텍스트 (예: "SHIN")
@@ -14,6 +15,7 @@ import './SplitTextSection.css';
  * - bgColor: 배경색 ("black" 또는 "white")
  */
 function SplitTextSection({
+    id,  // 👈 id prop 추가
     leftTop,
     leftBottom,
     rightTop,
@@ -24,7 +26,7 @@ function SplitTextSection({
     bgColor = "black"
 }) {
     return (
-        <section className={`sectionTitle bg-${bgColor} ${variant || ''}`}>
+        <section id={id} className={`sectionTitle bg-${bgColor} ${variant || ''}`}>
             <div className="inner">
                 {/* 왼쪽 상단 */}
                 <div className="left-1">

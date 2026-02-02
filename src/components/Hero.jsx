@@ -139,7 +139,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section className="hero" ref={containerRef}>
+        <section id="home" className="hero" ref={containerRef}>
             <div className="video-background">
                 <video autoPlay loop muted playsInline>
                     <source src="/video/bg-video.mp4" type="video/mp4" />

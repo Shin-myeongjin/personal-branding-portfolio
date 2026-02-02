@@ -11,6 +11,9 @@ import TextSection from './components/TextSection';
 import RootSection from './components/RootSection';
 import SideProjects from './components/SideProjects';
 import CloneCoding from './components/CloneCoding';
+import Hobby from './components/Hobby';
+import Contact from './components/Contact';
+
 import './index.css';
 
 function App() {
@@ -18,7 +21,7 @@ function App() {
     <>
       <Header />
       <Hero />
-      <SplitTextSection
+      <SplitTextSection id="about"
         leftTop="ABOUT"
         leftBottom="ME"
         rightTop="SHIN"
@@ -38,7 +41,7 @@ function App() {
         ]}
         showArrow={true}
       />
-      <SplitTextSection
+      <SplitTextSection id="works"
         leftTop="uxui design"
         leftBottom="frontend"
         rightTop="2025-26"
@@ -213,6 +216,8 @@ function App() {
           { id: 8, name: "KOREA CONSUMER", year: "2023", image: "/img/clone-korea.jpg", link: "#" }
         ]}
       />
+      <Hobby />
+      <Contact />
     </>
   );
 }

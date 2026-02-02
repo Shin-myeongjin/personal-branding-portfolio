@@ -64,10 +64,11 @@ const CloneCoding = ({ items = [] }) => {
             {/* 고정 헤더 */}
             <div className="clone-fixed-header">
                 <div className="clone-header-top">
-                    <div className="clone-header-line"></div>
                     <div className="clone-header-title">
                         <span>CLONE CODING</span>
                     </div>
+                    <div className="clone-header-line"></div>
+
                 </div>
             </div>
 
