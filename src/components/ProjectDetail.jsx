@@ -14,6 +14,10 @@ import './ProjectDetail.css';
  * - links: 버튼 링크 배열 [{ text, url, variant }]
  * - chipTags: 상단 태그 배열 [{ text, variant }]
  * - progress: 진행도 배열 [{ label, value }] (최대 3개)
+ * - bgColor: 배경 테마 ('light' | 'dark') - 기본값: 'light'
+ * - showProgress: 진행도 바 표시 여부 - 기본값: true
+ * - additionalText: 진행도 바 대신 표시할 추가 텍스트
+ * - showUIScreenshots: UI 스크린샷 섹션 표시 여부 - 기본값: true
  */
 function ProjectDetail({
     titles = [],
@@ -24,10 +28,14 @@ function ProjectDetail({
     description,
     links = [],
     chipTags = [],
-    progress = []
+    progress = [],
+    bgColor = 'light', // 'light' or 'dark'
+    showProgress = true,
+    additionalText = '',
+    showUIScreenshots = true
 }) {
     return (
-        <section className="project-detail">
+        <section className={`project-detail ${bgColor}`}>
             <div className="project-inner">
                 {/* 제목 영역 */}
                 <div className="project-header">
@@ -43,6 +51,24 @@ function ProjectDetail({
                         {thumbnailImage && (
                             <div className="project-thumbnail">
                                 <img src={thumbnailImage} alt="Project thumbnail" />
+                                {/* 호버 오버레이 */}
+                                {links.length > 0 && (
+                                    <div className="thumbnail-hover-overlay">
+                                        <div className="thumbnail-buttons">
+                                            {links.map((link, index) => (
+                                                <a
+                                                    key={index}
+                                                    href={link.url}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={`thumbnail-link ${link.variant}`}
+                                                >
+                                                    {link.text}
+                                                </a>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
                             </div>
                         )}
 
@@ -84,8 +110,8 @@ function ProjectDetail({
                             </div>
                         )}
 
-                        {/* 진행도 바 */}
-                        {progress.length > 0 && (
+                        {/* 진행도 바 또는 추가 텍스트 */}
+                        {showProgress && progress.length > 0 && (
                             <div className="progress-bars">
                                 {progress.map((item, index) => (
                                     <div key={index} className="progress-item">
@@ -101,11 +127,15 @@ function ProjectDetail({
                                 ))}
                             </div>
                         )}
+
+                        {!showProgress && additionalText && (
+                            <p className="additional-text">{additionalText}</p>
+                        )}
                     </div>
                 </div>
 
                 {/* UI 스크린샷들 - 하단 */}
-                {uiImages.length > 0 && (
+                {showUIScreenshots && uiImages.length > 0 && (
                     <div className={`ui-screenshots ${uiLayout}`}>
                         {uiImages.map((img, index) => (
                             <div key={index} className="ui-screenshot">

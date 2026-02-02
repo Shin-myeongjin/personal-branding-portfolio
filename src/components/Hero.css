@@ -80,13 +80,6 @@
     animation: blink-visibility 1s step-end infinite;
 }
 
-.hero .scroll-hint {
-    left: 50%;
-    top: 85%;
-
-    opacity: 1;
-}
-
 /* 
    Deprecated opacity blink 
    @keyframes blink { ... } removed to avoid conflict with GSAP opacity

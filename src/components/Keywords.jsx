@@ -44,7 +44,7 @@ const Keywords = () => {
 
     return (
         <section ref={containerRef} className="keywords-section">
-            <div className="keyword-pill">KEYWORD</div>
+            <div className="keyword-pill">MY KEYWORD</div>
 
             {keywords.map((keyword, index) => (
                 <div key={index} className={`keyword-item align-${keyword.align}`}>

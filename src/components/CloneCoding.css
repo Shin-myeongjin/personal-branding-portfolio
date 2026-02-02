@@ -1,0 +1,135 @@
+/* CloneCoding.css */
+
+.clone-coding-section {
+    position: relative;
+    width: 100%;
+    height: 500vh;
+    background-color: #0c0c0c;
+    padding: 0 16px;
+    box-sizing: border-box;
+}
+
+/* 고정 헤더 */
+.clone-fixed-header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 20;
+    background-color: #0c0c0c;
+}
+
+.clone-header-top {
+    width: 100%;
+    padding-top: 8vh;
+}
+
+.clone-header-line {
+    width: 100%;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.2);
+    margin-bottom: 16px;
+}
+
+.clone-header-title {
+    display: flex;
+    justify-content: flex-end;
+    padding-bottom: 16px;
+}
+
+.clone-header-title span {
+    width: 35%;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+/* 중앙 고정 이미지 뷰어 */
+.clone-image-viewer {
+    position: fixed;
+    top: 50%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    width: 480px;
+    height: 270px;
+    z-index: 5;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #1a1a1a;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    pointer-events: none;
+}
+
+.clone-image-viewer.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.clone-image-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.clone-image-link img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 스크롤 리스트 */
+.clone-scroll-list {
+    position: relative;
+    z-index: 10;
+    padding-top: 40vh;
+    padding-bottom: 50vh;
+}
+
+.clone-item-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 24px;
+    margin-bottom: 27px;
+    transition: color 0.3s ease;
+    color: #333;
+    cursor: pointer;
+}
+
+.clone-item-row.active {
+    color: #fff;
+}
+
+.clone-col-left {
+    width: 25%;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.clone-col-right {
+    width: 35%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .clone-image-viewer {
+        width: 320px;
+        height: 180px;
+        left: 50%;
+    }
+
+    .clone-header-title span {
+        width: 100%;
+        text-align: right;
+    }
+
+    .clone-col-left,
+    .clone-col-right {
+        font-size: 14px;
+    }
+}

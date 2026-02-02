@@ -40,7 +40,7 @@
 .big-title-4 {
     font-family: var(--font-display);
     font-weight: 900;
-    font-size: clamp(80px, 18vw, 280px);
+    font-size: clamp(80px, 15vw, 260px);
     line-height: 0.85;
     letter-spacing: -0.02em;
     text-transform: uppercase;

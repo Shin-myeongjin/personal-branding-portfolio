@@ -14,25 +14,19 @@ function AboutSearch() {
     useEffect(() => {
         const container = containerRef.current;
         const searchBtn = container.querySelector('.search-btn');
-        const scrollHint = container.querySelector('.scroll-hint');
         let mainTrigger;
 
         // 전체 애니메이션을 하나의 ScrollTrigger로 통합
         mainTrigger = ScrollTrigger.create({
             trigger: container,
-            start: 'center center',
-            end: '+=2500', // 충분한 스크롤 여유
+            start: 'top top',
+            end: '+=2000', // 충분한 스크롤 여유
             pin: true,
             pinSpacing: true,
             scrub: 1,
             anticipatePin: 1,
             onUpdate: (self) => {
                 const progress = self.progress;
-
-                // 스크롤 힌트 사라지기 (즉시)
-                if (progress > 0.2 && scrollHint) {
-                    gsap.to(scrollHint, { opacity: 0, duration: 0.3 });
-                }
 
                 // 1단계: 타이핑 (0% ~ 40%)
                 if (progress < 0.4) {
@@ -110,12 +104,6 @@ function AboutSearch() {
                         <button className="pill">선물</button>
                     </div>
                 )}
-
-                {/* 스크롤 힌트 */}
-                <div className="scroll-hint">
-                    <span className="scroll-arrow">↓</span>
-                    <span className="scroll-text">SCROLL</span>
-                </div>
             </div>
         </section>
     );

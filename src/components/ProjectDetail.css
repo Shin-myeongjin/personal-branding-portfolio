@@ -7,6 +7,33 @@
     padding: 160px 0;
 }
 
+/* Dark Theme */
+.project-detail.dark {
+    background-color: #161616;
+}
+
+.project-detail.dark .project-title {
+    color: #fff;
+}
+
+.project-detail.dark .project-description {
+    color: #fff;
+}
+
+.project-detail.dark .chip-tag.filled {
+    background: #fff;
+    color: #000;
+}
+
+.project-detail.dark .chip-tag.outline {
+    border: 1px solid #fff;
+    color: #fff;
+}
+
+.project-detail.dark .additional-text {
+    color: #fff;
+}
+
 .project-inner {
     width: 100%;
     margin: 0 auto;
@@ -46,12 +73,83 @@
     margin-top: 120px;
 }
 
+.project-thumbnail {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+    max-width: 525px;
+}
+
 .project-thumbnail img {
     width: 100%;
     max-width: 525px;
     height: auto;
     display: block;
     border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+/* 호버 오버레이 */
+.thumbnail-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 2;
+    border-radius: 8px;
+}
+
+.thumbnail-buttons {
+    display: flex;
+    gap: 12px;
+}
+
+.thumbnail-link {
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.thumbnail-link.outline {
+    border: 1px solid #fff;
+    background: #fff;
+    color: #000;
+}
+
+.thumbnail-link.outline:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.thumbnail-link.filled {
+    border: 1px solid #fff;
+    color: #fff;
+    background: transparent;
+}
+
+.thumbnail-link.filled:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 호버 시 효과 */
+.project-thumbnail:hover .thumbnail-hover-overlay {
+    opacity: 1;
+}
+
+.project-thumbnail:hover img {
+    transform: scale(1.1);
 }
 
 .project-description {
@@ -112,6 +210,17 @@
     height: auto;
     display: block;
     border-radius: 8px;
+}
+
+/* 추가 텍스트 (진행도 바 대신) */
+.additional-text {
+    font-size: 32px;
+    line-height: 1.2;
+    color: #333;
+    margin: 0;
+    white-space: pre-line;
+    letter-spacing: -0.05em;
+    font-weight: 400;
 }
 
 /* 칩 태그 */

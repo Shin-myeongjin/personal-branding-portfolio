@@ -7,7 +7,10 @@ import AboutSearch from './components/AboutSearch';
 import AboutProfile from './components/AboutProfile';
 import Keywords from './components/Keywords';
 import ProjectDetail from './components/ProjectDetail';
-import PresentStory from './components/PresentStory';
+import TextSection from './components/TextSection';
+import RootSection from './components/RootSection';
+import SideProjects from './components/SideProjects';
+import CloneCoding from './components/CloneCoding';
 import './index.css';
 
 function App() {
@@ -27,7 +30,14 @@ function App() {
       <AboutSearch />
       <AboutProfile />
       <Keywords />
-      <PresentStory />
+      <TextSection
+        title="PRESENT STORY"
+        description={[
+          "더 나은 경험을 선물하기 위해 탐구된 성장의 기록입니다.",
+          "수많은 고민과 시도가 쌓여 만들어진 현재의 가치를 확인해 보세요."
+        ]}
+        showArrow={true}
+      />
       <SplitTextSection
         leftTop="uxui design"
         leftBottom="frontend"
@@ -116,13 +126,13 @@ function App() {
         uiLayout="laptop"
 
         description="쓰다에서 그리다로 경험을 확장하며, 
-브랜드의 본질적 가치를 소개하는 
-모나미 웹 리뉴얼 프로젝트"
+                    브랜드의 본질적 가치를 소개하는 
+                    모나미 웹 리뉴얼 프로젝트"
 
         // 링크 버튼 (a 태그)
         links={[
           { text: "기획서 바로가기", url: "https://www.figma.com/proto/uRorIFumTAW2H5jCJeUPTT/Untitled?page-id=0%3A1&node-id=1-148&viewport=412%2C480%2C0.19&t=THv4VUwueAFcovIK-1&scaling=min-zoom&content-scaling=fixed", variant: "outline" },
-          { text: "앱 바로가기", url: "https://meongpunch.github.io/monamifinal/", variant: "filled" }
+          { text: "웹 바로가기", url: "https://meongpunch.github.io/monamifinal/", variant: "filled" }
         ]}
 
         // 상단 태그 (클릭 불가)
@@ -146,6 +156,7 @@ function App() {
         pillRight="SEARCH RESULT : 5 PROJECTS"
         bgColor="black"
       />
+      <RootSection />
       <SplitTextSection
         variant="centered"
         leftTop="ANOTHER"
@@ -154,6 +165,53 @@ function App() {
         rightBottom="WORKS"
         pillRight="SEARCH RESULT : SIDE PROJECTS"
         bgColor="black"
+      />
+      <SideProjects
+        titles={[
+          "ANOTHER PRESENTS,",
+          "OTHER WORKS."
+        ]}
+        projects={[
+          {
+            image: "/img/thumbnailImage-toletter.jpg",
+            link: "https://your-toletter-link.com",
+            tags: [
+              { text: "toletter", variant: "filled" },
+              { text: "2025", variant: "outline" }
+            ],
+            description: "백엔드 개발자인 아버지와 함께 한\nUXUI 서브 프로젝트\nUXUI 직무에 확신을 갖게 해준 프로젝트"
+          },
+          {
+            image: "/img/thumbnailImage-bincan.jpg",
+            link: "https://www.instagram.com/p/DKZYYHHSdsS/?igsh=MTVmY2Fmcjc5cTl5Yw==",
+            tags: [
+              { text: "present", variant: "filled" },
+              { text: "2025", variant: "outline" }
+            ],
+            description: "빈칸 단체전시 참여\n그동안 그려온 그림들을 하나의 점으로 묘사하여\n그 점들이 모여 계단을 오르는 사람의 모습을 만듬"
+          }
+        ]}
+      />
+      <TextSection
+        title="COMMUNICATION DESIGNER"
+        description={[
+          "개발자와 더 깊게 대화하기 위해 직접 코드를 두드리며 구조를 익혔습니다.",
+          "소통형 디자이너 신명진의 클론코딩 기록입니다."
+        ]}
+        buttonText="CLONE CODING"
+        showArrow={false}
+      />
+      <CloneCoding
+        items={[
+          { id: 1, name: "MUSINE", year: "2023", image: "/img/clone-musine.jpg", link: "https://naver.com" },
+          { id: 2, name: "Y.STUDIO", year: "2023", image: "/img/clone-ystudio.jpg", link: "https://ystudio-link.com" },
+          { id: 3, name: "CREW A LA MODE", year: "2025", image: "/img/clone-crewala.jpg", link: "#" },
+          { id: 4, name: "DABANG", year: "2023", image: "/img/clone-dabang.jpg", link: "#" },
+          { id: 5, name: "DOEPDA", year: "2023", image: "/img/clone-concierge.jpg", link: "#" },
+          { id: 6, name: "PHOMAIN", year: "2024", image: "/img/clone-phomain.jpg", link: "#" },
+          { id: 7, name: "HANHWA", year: "2023", image: "/img/clone-hanwha.jpg", link: "#" },
+          { id: 8, name: "KOREA CONSUMER", year: "2023", image: "/img/clone-korea.jpg", link: "#" }
+        ]}
       />
     </>
   );

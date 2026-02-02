@@ -10,16 +10,35 @@ const Hero = () => {
     const titleRef = useRef(null);
     const subTextRef = useRef(null);
     const cursorRef = useRef(null);
-    const scrollHintRef = useRef(null);
 
     const [displayText, setDisplayText] = useState("PORTFOLIO");
 
     // 새로고침/마운트 시 강제로 스크롤 최상단 이동
     useLayoutEffect(() => {
+        // 즉시 스크롤 최상단으로 이동
         window.scrollTo(0, 0);
+        document.documentElement.scrollTop = 0;
+        document.body.scrollTop = 0;
+
         if ('scrollRestoration' in window.history) {
             window.history.scrollRestoration = 'manual';
         }
+    }, []);
+
+    useEffect(() => {
+        // 추가 보험: 컴포넌트 마운트 후에도 한 번 더 실행
+        const scrollToTop = () => {
+            window.scrollTo(0, 0);
+            document.documentElement.scrollTop = 0;
+            document.body.scrollTop = 0;
+        };
+
+        scrollToTop();
+
+        // 약간의 지연 후에도 한 번 더 실행 (브라우저가 스크롤 복원을 시도하는 경우 대비)
+        const timer = setTimeout(scrollToTop, 100);
+
+        return () => clearTimeout(timer);
     }, []);
 
     useEffect(() => {
@@ -74,11 +93,6 @@ const Hero = () => {
                 ease: "steps(20)", // 단계별로 끊어지는 느낌 연출
                 onUpdate: () => {
                     const progress = proxy.value;
-
-                    // 스크롤 힌트 사라지기
-                    if (progress > 0.05 && scrollHintRef.current) {
-                        gsap.to(scrollHintRef.current, { opacity: 0, duration: 0.3 });
-                    }
 
                     // 커서 제어: 애니메이션 진행 중일 때만 보임
                     // 0.01 ~ 0.99 사이에서만 커서 노출 (완전 처음/끝에서는 숨김)
@@ -147,12 +161,6 @@ const Hero = () => {
                     <div className="portfolio-pill">
                         2026 UX/UI PORTFOLIO
                     </div>
-                </div>
-
-                {/* 스크롤 힌트 */}
-                <div className="scroll-hint" ref={scrollHintRef}>
-                    <span className="scroll-arrow">↓</span>
-                    <span className="scroll-text">SCROLL</span>
                 </div>
             </div>
         </section>

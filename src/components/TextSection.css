@@ -1,5 +1,6 @@
-/* Present Story Section */
-.present-story-section {
+/* TextSection.css */
+
+.text-section {
     position: relative;
     width: 100%;
     height: 100vh;
@@ -9,12 +10,16 @@
     justify-content: center;
 }
 
-/* Story Content */
-.story-content {
+/* Content */
+.text-content {
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 
-.story-title {
+.text-title {
     font-family: var(--font-display);
     font-size: 45px;
     font-weight: 700;
@@ -23,26 +28,41 @@
     letter-spacing: -0.02em;
 }
 
-.story-description {
+.text-description {
     font-family: var(--font-main);
     font-size: 32px;
     font-weight: 300;
     color: #fff;
     letter-spacing: -0.05em;
-    margin: 0;
+    margin-bottom: 56px;
 }
 
-/* Scroll Hint */
-.present-story-section .scroll-hint {
+/* 태그 (장식용, 클릭 불가) */
+.text-tag {
+    margin-top: 18px;
+    padding: 6px 18px;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+    border: 1px solid #fff;
+    background: transparent;
+    color: #fff;
+    display: inline-block;
+}
+
+/* Scroll Hint (Arrow) */
+.text-section .scroll-hint {
     position: absolute;
-    bottom: 0;
+    bottom: 5%;
     left: 50%;
     transform: translateX(-50%);
     opacity: 0.6;
     animation: bounce 2s infinite;
 }
 
-.present-story-section .scroll-hint svg {
+.text-section .scroll-hint svg {
     display: block;
 }
 
@@ -60,15 +80,19 @@
 
 /* 반응형 */
 @media (max-width: 768px) {
-    .story-title {
+    .text-title {
         font-size: 36px;
     }
 
-    .story-description {
+    .text-description {
         font-size: 16px;
     }
 
-    .story-content {
+    .text-content {
         padding: 0 20px;
+    }
+
+    .text-button {
+        font-size: 18px;
     }
 }
