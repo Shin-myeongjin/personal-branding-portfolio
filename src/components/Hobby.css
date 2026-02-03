@@ -1,0 +1,88 @@
+/* Hobby.css */
+
+.hobby-section {
+    width: 100%;
+    background-color: #fff;
+}
+
+.hobby-container {
+    width: 100%;
+    text-align: center;
+
+}
+
+.hobby-start {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+}
+
+.hobby-title-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.hobby-title {
+    font-size: 200px;
+    font-weight: 800;
+    line-height: 1;
+    color: #000;
+    letter-spacing: -3px;
+    text-align: center;
+    transition: transform 0.3s ease-out;
+    margin: 0;
+}
+
+.hobby-description {
+    font-size: 18px;
+    line-height: 1.5;
+    color: #000;
+    margin-bottom: 44px;
+    letter-spacing: -0.05em;
+    transition: opacity 0.3s ease-out;
+}
+
+.hobby-button {
+    padding: 6px 18px;
+    border: 1px solid currentColor;
+    background: transparent;
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 400;
+    text-transform: uppercase;
+    white-space: nowrap;
+    margin: 0;
+    text-align: center;
+    transition: opacity 0.3s ease-out;
+}
+
+
+
+.hobby-silhouette {
+    width: auto;
+    max-width: 60%;
+    height: auto;
+    display: block;
+    margin: 100vh auto 0;
+    padding: 106px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .hobby-title {
+        font-size: 60px;
+    }
+
+    .hobby-description {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+}

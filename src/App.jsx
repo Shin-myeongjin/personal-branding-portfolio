@@ -12,7 +12,9 @@ import RootSection from './components/RootSection';
 import SideProjects from './components/SideProjects';
 import CloneCoding from './components/CloneCoding';
 import Hobby from './components/Hobby';
-import Contact from './components/Contact';
+import HobbyChange from './components/HobbyChange';
+import QuickAnswer from './components/QuickAnswer';
+import Footer from './components/Footer';
 
 import './index.css';
 
@@ -41,6 +43,7 @@ function App() {
         ]}
         showArrow={true}
       />
+
       <SplitTextSection id="works"
         leftTop="uxui design"
         leftBottom="frontend"
@@ -206,18 +209,28 @@ function App() {
       />
       <CloneCoding
         items={[
-          { id: 1, name: "MUSINE", year: "2023", image: "/img/clone-musine.jpg", link: "https://naver.com" },
-          { id: 2, name: "Y.STUDIO", year: "2023", image: "/img/clone-ystudio.jpg", link: "https://ystudio-link.com" },
+          { id: 1, name: "MUSINE", year: "2025", image: "/img/clone-musine.jpg", link: "https://naver.com" },
+          { id: 2, name: "Y.STUDIO", year: "2025", image: "/img/clone-ystudio.jpg", link: "https://ystudio-link.com" },
           { id: 3, name: "CREW A LA MODE", year: "2025", image: "/img/clone-crewala.jpg", link: "#" },
-          { id: 4, name: "DABANG", year: "2023", image: "/img/clone-dabang.jpg", link: "#" },
-          { id: 5, name: "DOEPDA", year: "2023", image: "/img/clone-concierge.jpg", link: "#" },
-          { id: 6, name: "PHOMAIN", year: "2024", image: "/img/clone-phomain.jpg", link: "#" },
-          { id: 7, name: "HANHWA", year: "2023", image: "/img/clone-hanwha.jpg", link: "#" },
-          { id: 8, name: "KOREA CONSUMER", year: "2023", image: "/img/clone-korea.jpg", link: "#" }
+          { id: 4, name: "DABANG", year: "2025", image: "/img/clone-dabang.jpg", link: "#" },
+          { id: 5, name: "CONCIERGE", year: "2025", image: "/img/clone-concierge.jpg", link: "#" },
+          { id: 6, name: "PHOMAIN", year: "2025", image: "/img/clone-phomain.jpg", link: "#" },
+          { id: 7, name: "HANHWA", year: "2025", image: "/img/clone-hanwha.jpg", link: "#" },
+          { id: 8, name: "KOREA CONSUMER", year: "2025", image: "/img/clone-korea.jpg", link: "#" }
         ]}
       />
       <Hobby />
-      <Contact />
+      <HobbyChange />
+      <SplitTextSection
+        id="contact"
+        leftTop="quick"
+        leftBottom="answers"
+
+        bgColor="black"
+      />
+      <QuickAnswer />
+
+      <Footer />
     </>
   );
 }

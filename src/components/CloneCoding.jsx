@@ -50,13 +50,6 @@ const CloneCoding = ({ items = [] }) => {
         };
     }, [items]);
 
-    const handleItemClick = (index) => {
-        itemRefs.current[index]?.scrollIntoView({
-            behavior: 'smooth',
-            block: 'center'
-        });
-    };
-
     const activeItem = activeIndex >= 0 ? items[activeIndex] : null;
 
     return (
@@ -94,7 +87,6 @@ const CloneCoding = ({ items = [] }) => {
                         ref={(el) => (itemRefs.current[index] = el)}
                         data-index={index}
                         className={`clone-item-row ${activeIndex === index ? 'active' : ''}`}
-                        onClick={() => handleItemClick(index)}
                     >
                         <div className="clone-col-left">{item.name}</div>
                         <div className="clone-col-right">

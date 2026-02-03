@@ -62,7 +62,6 @@
     opacity: 0.3;
     transition: opacity 0.3s ease;
     line-height: 1;
-    cursor: pointer;
 }
 
 .keyword-title:hover {
