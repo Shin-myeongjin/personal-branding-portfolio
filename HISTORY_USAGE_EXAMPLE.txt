@@ -1,0 +1,28 @@
+// App.jsx에 History 컴포넌트 추가하는 방법:
+
+// 1. import 추가
+import History from './components/History';
+
+// 2. 원하는 위치에 컴포넌트 추가
+<History />
+
+// 전체 예시:
+function App() {
+  return (
+    <div className="App">
+      {/* ... 다른 컴포넌트들 ... */}
+      
+      <History />
+      
+      {/* ... 다른 컴포넌트들 ... */}
+    </div>
+  );
+}
+
+// 필요한 이미지:
+// - /public/img/timeline.png (배경 곡선 이미지)
+
+// 동작 방식:
+// - 세로 스크롤 → 가로 이동
+// - 순수 JavaScript scroll event 사용 (ScrollTrigger 없음)
+// - requestAnimationFrame으로 부드러운 애니메이션

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import Header from './components/Header';
+import HeaderFixed from './components/HeaderFixed';
 import Hero from './components/Hero';
 import SplitTextSection from './components/SplitTextSection';
 import AboutSearch from './components/AboutSearch';
@@ -14,14 +15,14 @@ import CloneCoding from './components/CloneCoding';
 import Hobby from './components/Hobby';
 import HobbyChange from './components/HobbyChange';
 import QuickAnswer from './components/QuickAnswer';
-import Footer from './components/Footer';
+import SkillsFlow from './components/SkillsFlow';
 
 import './index.css';
 
 function App() {
   return (
     <>
-      <Header />
+      <HeaderFixed />
       <Hero />
       <SplitTextSection id="about"
         leftTop="ABOUT"
@@ -35,6 +36,7 @@ function App() {
       <AboutSearch />
       <AboutProfile />
       <Keywords />
+      <SkillsFlow />
       <TextSection
         title="PRESENT STORY"
         description={[
@@ -43,7 +45,6 @@ function App() {
         ]}
         showArrow={true}
       />
-
       <SplitTextSection id="works"
         leftTop="uxui design"
         leftBottom="frontend"
@@ -163,6 +164,27 @@ function App() {
         bgColor="black"
       />
       <RootSection />
+      <TextSection
+        title="COMMUNICATION DESIGNER"
+        description={[
+          "개발자와 더 깊게 대화하기 위해 직접 코드를 두드리며 구조를 익혔습니다.",
+          "소통형 디자이너 신명진의 클론코딩 기록입니다."
+        ]}
+        buttonText="CLONE CODING"
+        showArrow={false}
+      />
+      <CloneCoding
+        items={[
+          { id: 1, name: "MUSINE", year: "2025", image: "/img/clone-musine.jpg", link: "https://clone-coding01-musine.vercel.app/" },
+          { id: 2, name: "Y.STUDIO", year: "2025", image: "/img/clone-ystudio.jpg", link: "https://clone-coding02-y-studio.vercel.app/" },
+          { id: 3, name: "CREW A LA MODE", year: "2025", image: "/img/clone-crewala.jpg", link: "https://clone-coding03-crew-a-la-mode.vercel.app/" },
+          { id: 4, name: "DABANG", year: "2025", image: "/img/clone-dabang.jpg", link: "https://clone-coding04-dabang.vercel.app/" },
+          { id: 5, name: "CONCIERGE", year: "2025", image: "/img/clone-concierge.jpg", link: "https://clone-coding05-conclerge.vercel.app/" },
+          { id: 6, name: "PHOMAIN", year: "2025", image: "/img/clone-phomain.jpg", link: "https://clone-coding06-phomain.vercel.app/" },
+          { id: 7, name: "HANHWA", year: "2025", image: "/img/clone-hanwha.jpg", link: "https://clone-coding07-hanwha.vercel.app/" },
+          { id: 8, name: "KOREA CONSUMER", year: "2025", image: "/img/clone-korea.jpg", link: "https://clone-coding08-korea-consumer.vercel.app/" }
+        ]}
+      />
       <SplitTextSection
         variant="centered"
         leftTop="ANOTHER"
@@ -198,39 +220,27 @@ function App() {
           }
         ]}
       />
-      <TextSection
-        title="COMMUNICATION DESIGNER"
-        description={[
-          "개발자와 더 깊게 대화하기 위해 직접 코드를 두드리며 구조를 익혔습니다.",
-          "소통형 디자이너 신명진의 클론코딩 기록입니다."
-        ]}
-        buttonText="CLONE CODING"
-        showArrow={false}
-      />
-      <CloneCoding
-        items={[
-          { id: 1, name: "MUSINE", year: "2025", image: "/img/clone-musine.jpg", link: "https://naver.com" },
-          { id: 2, name: "Y.STUDIO", year: "2025", image: "/img/clone-ystudio.jpg", link: "https://ystudio-link.com" },
-          { id: 3, name: "CREW A LA MODE", year: "2025", image: "/img/clone-crewala.jpg", link: "#" },
-          { id: 4, name: "DABANG", year: "2025", image: "/img/clone-dabang.jpg", link: "#" },
-          { id: 5, name: "CONCIERGE", year: "2025", image: "/img/clone-concierge.jpg", link: "#" },
-          { id: 6, name: "PHOMAIN", year: "2025", image: "/img/clone-phomain.jpg", link: "#" },
-          { id: 7, name: "HANHWA", year: "2025", image: "/img/clone-hanwha.jpg", link: "#" },
-          { id: 8, name: "KOREA CONSUMER", year: "2025", image: "/img/clone-korea.jpg", link: "#" }
-        ]}
-      />
+
       <Hobby />
       <HobbyChange />
       <SplitTextSection
-        id="contact"
+        id="quick-answer"
         leftTop="quick"
         leftBottom="answers"
-
         bgColor="black"
       />
       <QuickAnswer />
-
-      <Footer />
+      <SplitTextSection
+        id="contact"
+        leftTop="present."
+        leftBottom="end"
+        rightTop="Let's"
+        rightBottom="contact"
+        pillLeft="010-7404-0416"
+        pillRight="braingr22n@naver.com"
+        variant="contact-lowercase"
+        bgColor="black"
+      />
     </>
   );
 }

@@ -7,77 +7,87 @@ gsap.registerPlugin(ScrollTrigger);
 
 function AboutSearch() {
     const containerRef = useRef(null);
-    const [showPills, setShowPills] = useState(false);
     const [typedText, setTypedText] = useState('');
-    const [showCursor, setShowCursor] = useState(true);
+    const [showCursor, setShowCursor] = useState(false);
+    const [showButton, setShowButton] = useState(false);
+    const [showPills, setShowPills] = useState(false);
 
     useEffect(() => {
         const container = containerRef.current;
-        const searchBtn = container.querySelector('.search-btn');
-        let mainTrigger;
+        if (!container) return;
 
-        // 전체 애니메이션을 하나의 ScrollTrigger로 통합
-        mainTrigger = ScrollTrigger.create({
+        let typingInterval = null;
+        let currentStep = 0;
+
+        // ScrollTrigger로 섹션 고정하고 스크롤 진행도에 따라 애니메이션
+        const trigger = ScrollTrigger.create({
             trigger: container,
             start: 'top top',
-            end: '+=2000', // 충분한 스크롤 여유
+            end: '+=3000', // 충분한 스크롤 공간
             pin: true,
             pinSpacing: true,
-            scrub: 1,
-            anticipatePin: 1,
+            scrub: false,
             onUpdate: (self) => {
-                const progress = self.progress;
+                const scrolled = self.progress * 3000;
 
-                // 1단계: 타이핑 (0% ~ 40%)
-                if (progress < 0.4) {
-                    const typingProgress = progress / 0.4;
-                    const text = 'PRESENT';
-                    const length = Math.floor(typingProgress * text.length);
-                    setTypedText(text.slice(0, length));
+                // Step 1: 타이핑 시작 (0 ~ 1000px)
+                if (scrolled >= 0 && currentStep === 0) {
+                    currentStep = 1;
                     setShowCursor(true);
-                }
 
-                // 2단계: 타이핑 완료, 버튼 활성화 (40% ~ 50%)
-                else if (progress >= 0.4 && progress < 0.5) {
-                    setTypedText('PRESENT');
-                    setShowCursor(false);
-                    gsap.to(searchBtn, { opacity: 1, duration: 0.3 });
-                }
+                    const text = 'PRESENT';
+                    let index = 0;
 
-                // 3단계: 버튼 클릭 애니메이션 (50% ~ 60%)
-                else if (progress >= 0.5 && progress < 0.6) {
-                    const clickProgress = (progress - 0.5) / 0.1;
-                    const scale = 1 - (clickProgress * 0.05);
-                    gsap.to(searchBtn, { scale: scale, duration: 0.1 });
-                }
-
-                // 4단계: 버튼 사라지고 알약 나타남 (60% ~ 70%)
-                else if (progress >= 0.6 && progress < 0.7) {
-                    gsap.to(searchBtn, { opacity: 0, scale: 1, duration: 0.3 });
-                    setShowPills(true);
-                    setTimeout(() => {
-                        gsap.to('.pills', { opacity: 1, duration: 0.5 });
-                    }, 50);
-                }
-
-                // 5단계: 알약 표시 유지 (70% ~ 100%)
-                // 마지막 30%는 알약을 보여주는 시간
-
-                // 완료 시 ScrollTrigger 제거
-                if (progress >= 0.99) {
-                    setTimeout(() => {
-                        if (mainTrigger) {
-                            mainTrigger.kill();
+                    typingInterval = setInterval(() => {
+                        if (index <= text.length) {
+                            setTypedText(text.slice(0, index));
+                            index++;
+                        } else {
+                            clearInterval(typingInterval);
+                            setShowCursor(false);
+                            setShowButton(true); // 타이핑 완료 동시에 버튼 표시!
+                            currentStep = 2;
                         }
                     }, 100);
                 }
+
+                // Step 2: 버튼 표시됨 (대기 중)
+
+                // Step 3: 검색 결과 표시 (1500 ~ 3000px)
+                if (scrolled >= 1500 && currentStep === 2) {
+                    currentStep = 3; // 다음 스텝으로 진행
+                    setShowButton(false);
+                    setShowPills(true);
+                }
+
+                // Step 4: 완료 - 스크롤 풀림 (3000px)
+                // progress >= 0.99면 자동으로 pin 해제되고 다음 섹션으로
+            },
+            onEnter: () => {
+                // 섹션 진입 시 초기화 (새로고침 대응)
+                if (currentStep > 0) {
+                    currentStep = 0;
+                    setTypedText('');
+                    setShowCursor(false);
+                    setShowButton(false);
+                    setShowPills(false);
+                    if (typingInterval) clearInterval(typingInterval);
+                }
+            },
+            onLeaveBack: () => {
+                // 위로 스크롤해서 섹션을 벗어나면 리셋
+                currentStep = 0;
+                setTypedText('');
+                setShowCursor(false);
+                setShowButton(false);
+                setShowPills(false);
+                if (typingInterval) clearInterval(typingInterval);
             }
         });
 
         return () => {
-            if (mainTrigger) {
-                mainTrigger.kill();
-            }
+            if (typingInterval) clearInterval(typingInterval);
+            trigger.kill();
         };
     }, []);
 
@@ -92,7 +102,7 @@ function AboutSearch() {
                     </span>
                 </div>
 
-                {!showPills && (
+                {showButton && (
                     <button className="search-btn">
                         SEARCH
                     </button>

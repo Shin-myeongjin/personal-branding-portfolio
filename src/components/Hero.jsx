@@ -69,6 +69,16 @@ const Hero = () => {
                     end: "+=3000",   // 애니메이션이 진행될 스크롤 길이
                     pin: true,       // 섹션 고정
                     scrub: 1,        // 부드러운 스크러빙
+                    onEnter: () => {
+                        // Hero 섹션 진입 시 스크롤바 숨김
+                        document.documentElement.style.setProperty('--scrollbar-track', '#161616');
+                        document.documentElement.style.setProperty('--scrollbar-thumb', '#161616');
+                    },
+                    onLeaveBack: () => {
+                        // Hero 섹션으로 다시 돌아올 때 스크롤바 숨김
+                        document.documentElement.style.setProperty('--scrollbar-track', '#161616');
+                        document.documentElement.style.setProperty('--scrollbar-thumb', '#161616');
+                    }
                 }
             });
 
@@ -139,7 +149,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <section id="home" className="hero" ref={containerRef}>
+        <section id="hero" className="hero" ref={containerRef}>
             <div className="video-background">
                 <video autoPlay loop muted playsInline>
                     <source src="/video/bg-video.mp4" type="video/mp4" />

@@ -1,0 +1,267 @@
+/* SkillsFlow.css */
+
+.skills-flow-section {
+    position: relative;
+    width: 100%;
+    min-height: 500vh;
+    background-color: #161616;
+    padding-top: 50vh;
+    overflow: visible;
+}
+
+/* 중앙 고정 박스 */
+.skills-fixed-center {
+    position: sticky;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+    z-index: 1;
+    padding: 0 40px;
+}
+
+.skills-title {
+    font-size: 120px;
+    font-weight: 900;
+    color: #fff;
+    margin-bottom: 45px;
+    letter-spacing: -0.02em;
+}
+
+.skills-lists {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+}
+
+.skill-category {
+    text-align: left;
+}
+
+.category-title {
+    font-size: 22px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 24px;
+    letter-spacing: -0.02em;
+}
+
+.skill-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.skill-list li {
+    font-size: 18px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 12px;
+    letter-spacing: -0.02em;
+}
+
+/* 흐르는 스킬 카드 컨테이너 */
+.skills-cards-container {
+    position: absolute;
+    top: 0;
+    left: -200px;
+    width: calc(100% + 400px);
+    height: 100%;
+    overflow: visible;
+
+}
+
+.skills-cards-left,
+.skills-cards-right {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 307px;
+    padding: 200px 0;
+}
+
+.skills-cards-left {
+    left: 0;
+    padding-left: 332px;
+    align-items: flex-start;
+    margin-top: 300px;
+}
+
+.skills-cards-right {
+    right: 0;
+    padding-right: 332px;
+    align-items: flex-end;
+    margin-top: 600px;
+}
+
+/* 스킬 카드 */
+.skill-card {
+    width: 307px;
+    height: 307px;
+    perspective: 1000px;
+    cursor: pointer;
+    pointer-events: auto;
+}
+
+.skill-card-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.skill-card:hover .skill-card-flipper {
+    transform: rotateY(180deg);
+}
+
+.skill-card-front,
+.skill-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    background: rgba(38, 38, 38, 1);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.skill-card-front {
+    transform: rotateY(0deg);
+}
+
+.skill-card-back {
+    transform: rotateY(180deg);
+    padding: 40px 30px;
+}
+
+.skill-circle {
+    position: relative;
+    width: 180px;
+    height: 180px;
+    margin-bottom: 20px;
+
+}
+
+.skill-circle svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(0deg);
+}
+
+/* 진행바 애니메이션 */
+.progress-circle {
+    transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.skill-card.active .progress-circle {
+    stroke-dashoffset: calc(282.743px * (1 - var(--target-level) / 100)) !important;
+}
+
+.skill-name {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 38px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.02em;
+}
+
+.skill-tool-name {
+    font-size: 20px;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+    text-align: center;
+}
+
+/* 뒷면 스타일 */
+.skill-back-title {
+    font-size: 38px;
+    font-weight: 600;
+    color: #fff;
+    margin: 0 0 12px 0;
+    letter-spacing: -0.02em;
+}
+
+.skill-back-level {
+    font-size: 28px;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0 0 38px 0;
+}
+
+.skill-back-description {
+    font-size: 16px;
+    font-weight: 300;
+    color: #fff;
+    line-height: 132%;
+    text-align: center;
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+    .skills-cards-container {
+        left: -100px;
+        width: calc(100% + 200px);
+    }
+
+    .skills-cards-left {
+        padding-left: 100px;
+    }
+
+    .skills-cards-right {
+        padding-right: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-title {
+        font-size: 60px;
+        margin-bottom: 40px;
+    }
+
+    .skills-lists {
+        flex-direction: column;
+        gap: 40px;
+        align-items: center;
+    }
+
+    .skill-category {
+        text-align: center;
+    }
+
+    .skill-card {
+        width: 100px;
+        height: 100px;
+        padding: 15px;
+    }
+
+    .skill-circle {
+        width: 60px;
+        height: 60px;
+    }
+
+    .skill-name {
+        font-size: 11px;
+    }
+
+    .skills-cards-left,
+    .skills-cards-right {
+        gap: 100px;
+    }
+}

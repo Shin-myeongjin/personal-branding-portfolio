@@ -64,10 +64,6 @@
     line-height: 1;
 }
 
-.keyword-title:hover {
-    opacity: 1;
-}
-
 /* Active State */
 .keyword-item.active .keyword-title {
     opacity: 1;

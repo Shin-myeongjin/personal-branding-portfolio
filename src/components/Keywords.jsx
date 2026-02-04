@@ -1,9 +1,5 @@
 import { useRef, useEffect } from "react";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Keywords.css";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const Keywords = () => {
     const containerRef = useRef(null);
@@ -23,23 +19,44 @@ const Keywords = () => {
     ];
 
     useEffect(() => {
-        const items = gsap.utils.toArray('.keyword-item');
+        const section = containerRef.current;
+        if (!section) return;
 
-        items.forEach((item) => {
-            ScrollTrigger.create({
-                trigger: item,
-                start: "center center",
-                end: "center center",
-                onEnter: () => item.classList.add('active'),
-                onLeave: () => item.classList.remove('active'),
-                onEnterBack: () => item.classList.add('active'),
-                onLeaveBack: () => item.classList.remove('active'),
+        const items = Array.from(section.querySelectorAll('.keyword-item'));
+        if (items.length === 0) return;
+
+        const handleScroll = () => {
+            const viewportCenter = window.innerHeight / 2;
+
+            // 각 키워드의 위치를 확인하고 viewport center에 가장 가까운 것 찾기
+            let closestIndex = -1;
+            let closestDistance = Infinity;
+
+            items.forEach((item, index) => {
+                const rect = item.getBoundingClientRect();
+                const itemCenter = rect.top + rect.height / 2;
+                const distance = Math.abs(itemCenter - viewportCenter);
+
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
             });
-        });
 
-        return () => {
-            ScrollTrigger.getAll().forEach(st => st.kill());
+            // 모든 active 제거 후 가장 가까운 것만 활성화
+            items.forEach((item, index) => {
+                if (index === closestIndex) {
+                    item.classList.add('active');
+                } else {
+                    item.classList.remove('active');
+                }
+            });
         };
+
+        window.addEventListener('scroll', handleScroll, { passive: true });
+        handleScroll(); // 초기 호출
+
+        return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
     return (
