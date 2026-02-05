@@ -75,6 +75,11 @@
         font-size: 16px;
         padding: 4px 12px;
     }
+
+    .keyword-title {
+        font-size: 10vw;
+    }
+
 }
 
 @media (max-width: 1024px) {
@@ -91,7 +96,7 @@
     }
 
     .keyword-title {
-        font-size: 100px;
+        font-size: 10vw;
     }
 
     .keyword-item {
@@ -122,7 +127,7 @@
 
     .keyword-title {
         /* 긴 단어(COMMUNICATION)가 잘리지 않도록 vw 단위 사용 */
-        font-size: 13vw;
+        font-size: 10vw;
     }
 
     .keyword-item {

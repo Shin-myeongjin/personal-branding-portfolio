@@ -104,6 +104,15 @@
 
 /* 반응형 */
 @media (max-width: 1400px) {
+    .profile-title {
+        font-size: 3.2vw;
+    }
+
+    .profile-description,
+    .profile-motto {
+        font-size: 2.3vw;
+    }
+
     .profile-cta {
         font-size: 16px;
         padding: 4px 12px;
@@ -118,16 +127,75 @@
     }
 
     .profile-container {
-        grid-template-columns: 1fr;
-        gap: 60px;
+        flex-direction: column;
+        gap: 0;
+        /* gap 대신 개별 마진 사용 */
+    }
+
+    .profile-image {
+        width: 70%;
+        order: 2;
+        /* 2. 사진 */
+        margin-bottom: 40px;
+    }
+
+    .profile-content {
+        display: contents;
+        /* 컨테이너 해제 -> 자식들이 profile-container의 직계 자식이 됨 */
     }
 
     .profile-title {
-        font-size: 32px;
+        order: 1;
+        /* 1. 타이틀 */
+        font-size: 5.5vw;
+        /* 45px @ 430px */
+        margin-bottom: 3.7vw;
+        /* 16px */
+        text-align: center;
+        width: 100%;
+        line-height: 1.2;
+    }
+
+    .profile-description,
+    .profile-motto {
+        order: 3;
+        /* 3. 본문 */
+        font-size: 3vw;
+        /* 18px @ 430px */
+        max-width: 90%;
+        margin-bottom: 3.7vw;
+        /* 16px */
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+        word-break: keep-all;
+    }
+
+    /* BR 태그 복원 (원래 줄바꿈 의도 유지) */
+    .profile-description br,
+    .profile-motto br {
+        content: normal;
+        display: inline;
     }
 
     .profile-motto {
-        font-size: 16px;
+        margin-bottom: 9.3vw;
+        /* 40px */
+    }
+
+    .profile-cta {
+        order: 4;
+        /* 4. 알약 */
+        align-self: center;
+        font-size: 3.25vw;
+        /* 14px */
+        padding: 1vw 2.5vw;
+        /* 4px 10px */
+    }
+
+    .bg-overlay {
+        display: none;
+        /* 모바일구조 변경으로 인해 배경 오버레이 제거 혹은 재조정 */
     }
 }
 
@@ -137,10 +205,11 @@
     }
 
     .profile-title {
-        font-size: 28px;
+        font-size: 6vw;
     }
 
-    .profile-description {
+    .profile-description,
+    .profile-motto {
         font-size: 16px;
     }
 
