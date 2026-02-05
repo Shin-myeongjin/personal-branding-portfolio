@@ -3,6 +3,8 @@
 .hobby-section {
     width: 100%;
     background-color: #fff;
+    overflow-x: clip;
+    /* 가로 스크롤 방지 */
 }
 
 .hobby-container {
@@ -21,6 +23,8 @@
     align-items: center;
     justify-content: center;
     z-index: 10;
+    overflow-x: clip;
+    /* Sticky 내부에서도 방지 */
 }
 
 .hobby-title-wrapper {
@@ -31,7 +35,9 @@
 }
 
 .hobby-title {
-    font-size: 200px;
+    font-size: 15vw;
+    /* 뷰포트 비례 크기 */
+    max-font-size: 200px;
     font-weight: 800;
     line-height: 1;
     color: #000;
@@ -77,9 +83,19 @@
 
 /* 반응형 */
 @media (max-width: 1400px) {
+    .hobby-title {
+        font-size: 180px;
+    }
+
     .hobby-button {
         font-size: 16px;
         padding: 4px 12px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hobby-title {
+        font-size: 140px;
     }
 }
 

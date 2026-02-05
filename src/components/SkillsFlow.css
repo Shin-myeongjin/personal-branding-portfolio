@@ -84,6 +84,7 @@
     flex-direction: column;
     gap: 307px;
     padding: 200px 0;
+    z-index: 2;
 }
 
 .skills-cards-left {
@@ -215,25 +216,115 @@
 }
 
 /* 반응형 */
-@media (max-width: 1200px) {
+@media (max-width: 1600px) {
     .skills-cards-container {
-        left: -100px;
-        width: calc(100% + 200px);
+        left: -150px;
+        width: calc(100% + 300px);
     }
 
     .skills-cards-left {
-        padding-left: 100px;
+        padding-left: 200px;
     }
 
     .skills-cards-right {
-        padding-right: 100px;
+        padding-right: 200px;
+    }
+
+    .skill-card {
+        width: 260px;
+        height: 260px;
+    }
+
+    .skill-circle {
+        width: 150px;
+        height: 150px;
+    }
+
+    .skill-name {
+        font-size: 32px;
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
+    .skills-cards-container {
+        left: 0;
+        width: 100%;
+    }
+
+    .skills-cards-left {
+        padding-left: 50px;
+        align-items: flex-start;
+    }
+
+    .skills-cards-right {
+        padding-right: 50px;
+        align-items: flex-end;
+    }
+
+    .skill-card {
+        width: 220px;
+        height: 220px;
+    }
+
+    .skill-circle {
+        width: 120px;
+        height: 120px;
+        margin-bottom: 12px;
+    }
+
+    .skill-name {
+        font-size: 24px;
+    }
+
+    .skills-title {
+        font-size: 90px;
+        margin-bottom: 30px;
+    }
+
+    .skills-fixed-center {
+        max-width: 500px;
+    }
+
+    .skills-lists {
+        gap: 40px;
+    }
+
+    .category-title {
+        font-size: 18px;
+    }
+
+    .skill-list li {
+        font-size: 14px;
+    }
+
+    /* 카드 뒤집기 텍스트 조정 */
+    .skill-back-title {
+        font-size: 24px;
+    }
+
+    .skill-back-level {
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .skill-back-description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 930px) {
+    .skills-cards-left {
+        padding-left: 16px;
+        align-items: flex-start;
+    }
+
+    .skills-cards-right {
+        padding-right: 16px;
+        align-items: flex-end;
+    }
+
     .skills-flow-section {
-        min-height: 400vh;
-        /* 모바일에서 너무 길지 않게 축소 */
+        min-height: 220vh;
     }
 
     .skills-title {
@@ -243,6 +334,16 @@
 
     .skills-lists {
         gap: 30px;
+    }
+
+    .category-title {
+        font-size: 14px;
+        margin-bottom: 12px;
+    }
+
+    .skill-list li {
+        font-size: 12px;
+        margin-bottom: 6px;
     }
 
     .skill-category {
@@ -285,24 +386,20 @@
     }
 
     .skill-back-title {
-        font-size: 20px;
+        font-size: 18px;
+        /* 20->18 축소 */
         margin-bottom: 6px;
     }
 
     .skill-back-level {
-        font-size: 16px;
+        font-size: 14px;
+        /* 16->14 축소 */
         margin-bottom: 12px;
         color: var(--color-accent);
     }
 
     .skill-back-description {
-        font-size: 11px;
-        line-height: 1.3;
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        /* 3줄까지만 표시 */
-        -webkit-box-orient: vertical;
-        overflow: hidden;
+        display: none;
     }
 
     /* 카드 배치 간격 조정 */
@@ -313,19 +410,69 @@
     }
 
     .skills-cards-container {
-        left: -50px;
-        width: calc(100% + 100px);
+        left: 0;
+        width: 100%;
     }
 
     .skills-cards-left {
-        align-items: center;
-        padding-left: 0;
+        align-items: flex-start;
+        /* center -> flex-start */
+        padding-left: 16px;
+        /* 요청대로 100px */
         margin-top: 150px;
     }
 
     .skills-cards-right {
-        align-items: center;
-        padding-right: 0;
-        margin-top: 300px;
+        align-items: flex-end;
+        /* center -> flex-end */
+        padding-right: 16px;
+        /* 요청대로 100px */
+        margin-top: 280px;
+    }
+}
+
+@media (max-width: 700px) {
+    .skill-card:hover .skill-card-flipper {
+        transform: none;
+        cursor: default;
+    }
+
+    .skills-lists {
+        display: none;
+        /* 리스트 숨김 */
+    }
+
+    .skills-fixed-center {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .skills-flow-section {
+        min-height: 200vh;
+    }
+}
+
+/* 모바일 (390px 대응) */
+@media (max-width: 500px) {
+
+
+
+    .skills-lists {
+        display: none;
+        /* 리스트 숨김 */
+    }
+
+
+    /* 모바일에서는 카드 여백 조정 */
+    .skills-cards-left {
+        padding-left: 20px;
+        align-items: flex-start;
+    }
+
+    .skills-cards-right {
+        padding-right: 20px;
+        align-items: flex-end;
     }
 }
