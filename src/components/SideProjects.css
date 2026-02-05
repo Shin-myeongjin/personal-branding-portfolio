@@ -159,6 +159,10 @@
 }
 
 @media (max-width: 768px) {
+    .side-projects {
+        padding: 0 0 120px 0;
+    }
+
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 60px;

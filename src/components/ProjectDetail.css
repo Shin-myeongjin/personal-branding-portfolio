@@ -354,11 +354,13 @@
     }
 
     .project-left {
-        margin-top: 40px;
+        margin-top: 0;
+        gap: 20px;
     }
 
     .project-right {
         margin-top: 0;
+        gap: 20px;
     }
 
     /* 폰트 사이즈 최적화 */
@@ -381,14 +383,48 @@
     }
 
     .project-title {
-        font-size: 32px;
-        /* 클램프보다 확실하게 */
+        font-weight: 700;
+        font-size: clamp(20px, 2.5vw, 45px);
+        line-height: 1.2;
+        letter-spacing: -0.05em;
+        text-transform: uppercase;
+        margin: 0;
     }
 
+    /* UI 스크린샷 모바일 배치 */
     .ui-screenshots {
+        margin-top: 80px;
         flex-direction: column;
         align-items: center;
-        margin-top: 80px;
         gap: 24px;
+    }
+
+    .ui-screenshots.phones .ui-screenshot:nth-child(1) {
+        margin-top: 0;
+        /* 모바일에서는 단차 제거 */
+    }
+
+    .ui-screenshots.phones {
+        justify-content: center;
+    }
+
+    /* 이미지 반응형 (잘림 방지) */
+    .working-photo img {
+        width: 100%;
+    }
+
+    /* 모바일에서는 호버 효과 제거 (버튼이 따로 있으므로) */
+    .thumbnail-hover-overlay {
+        display: none !important;
+    }
+
+    /* 노트북 레이아웃 모바일 대응 */
+    .ui-screenshots.laptop {
+        width: 100%;
+    }
+
+    .ui-screenshots.laptop .ui-screenshot img {
+        width: 100%;
+        max-width: 100%;
     }
 }
