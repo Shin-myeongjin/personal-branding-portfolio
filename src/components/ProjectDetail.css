@@ -5,6 +5,8 @@
     width: 100%;
     background-color: #fff;
     padding: 160px 0;
+    overflow-x: clip;
+    /* 가로 스크롤 방지 */
 }
 
 /* Dark Theme */

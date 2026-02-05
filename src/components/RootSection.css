@@ -7,7 +7,8 @@
     position: relative;
     width: 100%;
     height: 400vh;
-
+    overflow-x: clip;
+    /* 가로 스크롤 방지 & Sticky 유지 */
 }
 
 /* 텍스트 스타일 */

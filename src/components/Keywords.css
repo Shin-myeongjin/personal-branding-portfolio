@@ -7,6 +7,8 @@
     flex-direction: column;
     padding: 200px 80px;
     gap: 16px;
+    overflow-x: clip;
+    /* 가로 스크롤 방지 */
 }
 
 /* KEYWORD 알약 */

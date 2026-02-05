@@ -5,6 +5,8 @@
     color: #fff;
     padding: 120px 106px;
     min-height: 100vh;
+    overflow-x: clip;
+    /* 가로 스크롤 방지 */
 }
 
 .quick-answer-tag {

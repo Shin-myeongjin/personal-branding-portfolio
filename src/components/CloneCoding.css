@@ -8,6 +8,8 @@
     padding: 0 16px;
     box-sizing: border-box;
     margin-bottom: 300px;
+    overflow-x: clip;
+    /* 가로 스크롤 방지 */
 }
 
 /* 고정 헤더 */

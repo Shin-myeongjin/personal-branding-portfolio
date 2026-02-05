@@ -6,6 +6,8 @@
     min-height: 500vh;
     background-color: #fff;
     padding-top: 50vh;
+    overflow-x: clip;
+    /* 가로 스크롤 방지 */
 }
 
 /* 중앙 고정 박스 */

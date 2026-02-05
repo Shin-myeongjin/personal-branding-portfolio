@@ -8,6 +8,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow-x: clip;
+    /* 가로 스크롤 방지 */
 }
 
 /* Content */

@@ -5,7 +5,7 @@
     /* 뷰포트 너비 제한 */
     background: #161616;
     overflow-x: clip;
-    /* 가로 스크롤만 차단 */
+    /* 가로 스크롤만 차단 (sticky 유지됨) */
     overflow-y: visible;
     /* 세로는 정상 */
 }
