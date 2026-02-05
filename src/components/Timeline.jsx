@@ -17,8 +17,10 @@ const Timeline = () => {
 
         if (!container || !track || !path) return;
 
-        // GSAP Context for cleanup
-        const ctx = gsap.context(() => {
+        // GSAP MatchMedia
+        let mm = gsap.matchMedia();
+
+        mm.add("(min-width: 1201px)", () => {
             // 1. 가로스크롤 애니메이션 (PIN 추가 + 안전장치)
             gsap.to(track, {
                 x: () => -(track.scrollWidth - window.innerWidth),
@@ -30,12 +32,12 @@ const Timeline = () => {
                     scrub: 1,
                     pin: true, // 화면 고정
                     pinSpacing: true, // 스크롤 공간 자동 생성
-                    anticipatePin: 1, // Pin 예측 (부드러움)
+                    anticipatePin: 1, // Pin 예측
                     invalidateOnRefresh: true, // 새로고침 시 재계산
                 }
             });
 
-            // 2. SVG path 그리기 애니메이션 (스크롤하면서 선이 그려짐)
+            // 2. SVG path 그리기 애니메이션
             const pathLength = path.getTotalLength();
 
             // 초기 상태: 선 숨김
@@ -55,9 +57,9 @@ const Timeline = () => {
                     scrub: 1,
                 }
             });
-        }, container);
+        });
 
-        return () => ctx.revert();
+        return () => mm.revert();
     }, []);
 
     const timelineData = [

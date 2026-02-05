@@ -153,6 +153,98 @@
     padding-bottom: 10vh;
 }
 
+@media (max-width: 1200px) {
+    .timeline-wrapper {
+        height: auto;
+    }
+
+    .timeline-container {
+        height: auto;
+        overflow: visible;
+    }
+
+    .timeline-track {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+        padding: 50px 0;
+        transform: translate(0, 0) !important;
+        /* GSAP 강제 해제 */
+        position: relative;
+    }
+
+    /* 세로 타임라인 선 (SVG 대체) */
+    .timeline-track::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 2px;
+        height: 85%;
+        /* NOW 섹션 전까지만 그려지도록 길이 단축 */
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateX(-50%);
+        z-index: 0;
+    }
+
+    /* 가로형 SVG 숨김 */
+    .timeline-path {
+        display: none;
+    }
+
+    .timeline-item {
+        min-width: 100%;
+        height: auto;
+        padding: 60px 20px;
+        align-items: center !important;
+        /* 가운데 정렬 */
+        justify-content: center;
+        text-align: center;
+        position: relative;
+        z-index: 1;
+    }
+
+    /* 타임라인 점 (Dot) 제거 */
+    .timeline-item::after {
+        display: none;
+    }
+
+    .timeline-content {
+        max-width: 600px;
+        background: #161616;
+        /* 선 가리지 않게 배경 확보 */
+        padding: 20px;
+        z-index: 2;
+    }
+
+    .timeline-year {
+        font-size: 80px;
+        margin-bottom: 20px;
+    }
+
+    /* 태그 위치 미정 */
+    .timeline-tag {
+        margin-top: 20px;
+    }
+
+    /* NOW 섹션 */
+    .now-section {
+        min-width: 100%;
+        height: auto;
+        padding: 100px 20px;
+        text-align: center;
+        align-items: center;
+        background: #161616;
+        /* 선 가림용 */
+        z-index: 2;
+        position: relative;
+    }
+
+    .now-title {
+        font-size: 100px;
+    }
+}
+
 /* 반응형 */
 @media (max-width: 1400px) {
     .timeline-tag {
@@ -169,13 +261,37 @@
     .timeline-tag {
         font-size: 14px;
         padding: 4px 10px;
+        margin-bottom: 16px;
+    }
+
+    .now-title,
+    .timeline-year {
+        font-size: 10vW;
+    }
+
+    .now-title {
+        margin-bottom: 20px;
     }
 
     .timeline-description {
         font-size: 14px;
+        line-height: 150%;
     }
 
     .now-description {
         font-size: 14px;
+        line-height: 150%;
+    }
+}
+
+@media (max-width: 400px) {
+    .timeline-description {
+        font-size: 14px;
+        line-height: 150%;
+    }
+
+    .now-description {
+        font-size: 14px;
+        line-height: 150%;
     }
 }

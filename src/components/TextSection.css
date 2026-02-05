@@ -106,3 +106,13 @@
         padding: 4px 10px;
     }
 }
+
+@media (max-width: 400px) {
+    .text-title {
+        line-height: 132%;
+    }
+
+    .text-description {
+        font-size: 12px;
+    }
+}
