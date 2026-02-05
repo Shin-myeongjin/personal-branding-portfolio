@@ -73,7 +73,7 @@
 }
 
 /* 알약 스타일 */
-.pill {
+.sectionTitle .pill {
     padding: 6px 18px;
     border: 1px solid currentColor;
     border-radius: 50px;
@@ -88,7 +88,7 @@
 }
 
 /* 흰색 배경 섹션의 알약 - 검정색에서 흰색으로 */
-.bg-white .pill {
+.sectionTitle.bg-white .pill {
     background-color: #000;
     color: #fff;
     border-color: #000;
@@ -111,7 +111,7 @@
 }
 
 /* 검정색 배경 섹션의 알약 - 흰색에서 검정색으로 */
-.bg-black .pill {
+.sectionTitle.bg-black .pill {
     background-color: #fff;
     color: #000;
     border-color: #fff;
@@ -148,32 +148,94 @@
     margin-right: 350px;
 }
 
-/* 반응형 (나중에) */
-@media (max-width: 768px) {
+/* 반응형 (1024px 이하) */
+@media (max-width: 1024px) {
 
     .big-title-1,
     .big-title-2,
     .big-title-3,
     .big-title-4 {
-        font-size: 22vw;
+        /* 170px은 1024px 화면에서 MYEONGJIN(9글자)이 들어가기에 너무 커서 줄바꿈됨 */
+        /* 화면 꽉 차게 하려면 vw 단위 사용 추천 (약 13~14vw) */
+        font-size: 14vw;
+        line-height: 0.9;
+    }
+
+    .sectionTitle {
+        /* 알약 위치 기준을 섹션 전체로 잡음 */
+        position: relative;
     }
 
     .inner {
-        padding: 0 20px;
+        padding: 80px 40px;
+        min-height: 100vh;
+        gap: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* 내부에서는 static flow 유지 */
     }
 
+    /* 텍스트 컨테이너 정렬 복구/조정 */
     .left-1,
-    .left-2,
+    .left-2 {
+        text-align: left;
+        justify-content: flex-start;
+        align-items: flex-start;
+        width: 100%;
+    }
+
     .right-1,
     .right-2 {
-        text-align: center;
-        justify-content: center;
+        text-align: right;
+        justify-content: flex-end;
+        align-items: flex-end;
+        width: 100%;
     }
 
     .left-2,
     .right-1 {
         flex-direction: column;
-        gap: 15px;
+    }
+
+
+    /* 알약 절대 위치 스타일링 - 섹션(sectionTitle) 기준으로 배치 */
+    .sectionTitle .pill {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+        padding: 4px 12px;
+        z-index: 10;
+        margin: 0 !important;
+        white-space: nowrap;
+    }
+
+    /* 첫 번째 알약 (Top) */
+    .left-2 .pill {
+        top: -150%;
+        /* 섹션 최상단에서 40px */
+        bottom: auto;
+    }
+
+    /* 두 번째 알약 (Bottom) */
+    .right-1 .pill {
+        bottom: -170%;
+        /* 섹션 최하단에서 40px */
+        top: auto;
+    }
+
+    /* 큰 타이틀 마진 초기화 */
+    .pill:nth-child(1),
+    .pill:nth-child(2),
+    .centered .big-title-2,
+    .centered .big-title-4 {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .centered .big-title-4 {
+        margin-top: 0;
     }
 }
 

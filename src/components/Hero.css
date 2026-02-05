@@ -56,7 +56,7 @@
 
     font-family: var(--font-display);
     font-weight: 900;
-    font-size: 280px;
+    font-size: 14.5vw;
     letter-spacing: -0.02em;
     line-height: 1;
     text-transform: uppercase;
@@ -133,22 +133,8 @@
 
 /* Responsive adjustments */
 @media (max-width: 1400px) {
-    .hero-title {
-        font-size: 15vw;
-        top: 40px;
-        left: 20px;
-    }
-
-    .hero-sub {
-        top: 60%;
-        left: 20px;
-    }
-}
-
-@media (max-width: 768px) {
     .video-background .overlay {
         background: rgba(0, 0, 0, 0.5);
-        /* Darker overlay */
     }
 
     .hero-content {
@@ -156,6 +142,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
     }
 
     .hero-title {
@@ -167,7 +154,56 @@
         width: 100%;
         justify-content: center;
         white-space: nowrap;
-        margin-bottom: 40px;
+        margin-bottom: 24px;
+        transform: none;
+        /* Reset transform */
+    }
+
+    .hero-sub {
+        position: relative;
+        /* Reset absolute */
+        top: auto;
+        left: auto;
+        transform: none;
+        align-items: center;
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+    }
+
+    .designer-name {
+        font-size: 26px;
+    }
+
+    .portfolio-pill {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .video-background .overlay {
+        background: rgba(0, 0, 0, 0.5);
+    }
+
+    .hero-content {
+        padding: 0 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-title {
+        position: relative;
+        /* Reset absolute */
+        top: auto;
+        left: auto;
+        font-size: 14vw;
+        width: 100%;
+        justify-content: center;
+        white-space: nowrap;
+        margin-bottom: 24px;
         transform: none;
         /* Reset transform */
     }
@@ -189,7 +225,7 @@
     }
 
     .portfolio-pill {
-        font-size: 14px;
-        padding: 6px 14px;
+        font-size: 16px;
+        padding: 4px 12px;
     }
 }
