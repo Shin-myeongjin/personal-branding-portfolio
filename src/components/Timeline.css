@@ -154,14 +154,21 @@
 }
 
 /* 반응형 */
+@media (max-width: 1400px) {
+    .timeline-tag {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+}
+
 @media (max-width: 768px) {
     .timeline-content {
         max-width: 90%;
     }
 
     .timeline-tag {
-        font-size: 12px;
-        padding: 6px 16px;
+        font-size: 14px;
+        padding: 4px 10px;
     }
 
     .timeline-description {

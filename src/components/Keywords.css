@@ -70,6 +70,13 @@
 }
 
 /* 반응형 */
+@media (max-width: 1400px) {
+    .keyword-pill {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+}
+
 @media (max-width: 1024px) {
     .keywords-section {
         padding: 150px 40px;
@@ -78,7 +85,9 @@
     .keyword-pill {
         top: 60px;
         left: 40px;
-        font-size: 18px;
+        font-size: 16px;
+        /* 1024px에서도 1400px 규칙 유지 */
+        padding: 4px 12px;
     }
 
     .keyword-title {
@@ -101,29 +110,32 @@
 @media (max-width: 768px) {
     .keywords-section {
         padding: 100px 20px;
-        gap: 12px;
+        gap: 8px;
     }
 
     .keyword-pill {
         top: 40px;
         left: 20px;
-        font-size: 16px;
-        padding: 4px 14px;
+        font-size: 14px;
+        padding: 4px 10px;
     }
 
     .keyword-title {
-        font-size: 60px;
+        /* 긴 단어(COMMUNICATION)가 잘리지 않도록 vw 단위 사용 */
+        font-size: 13vw;
     }
 
     .keyword-item {
-        min-height: 80px;
+        min-height: 60px;
+        /* 높이 축소 */
     }
 
+    /* 모바일에서는 들여쓰기 과하면 잘림 -> 대폭 축소 */
     .keyword-item.align-left-indent {
-        padding-left: 30px;
+        padding-left: 20px;
     }
 
     .keyword-item.align-center {
-        padding-left: 60px;
+        padding-left: 40px;
     }
 }

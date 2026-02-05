@@ -148,6 +148,21 @@
     margin-right: 350px;
 }
 
+/* 알약 호버 효과 */
+
+
+.sectionTitle.contact-lowercase .pill {
+    transition: all 0.3s ease;
+    cursor: pointer;
+    text-transform: lowercase;
+}
+
+.sectionTitle.contact-lowercase .pill:hover {
+    background-color: #fff;
+    color: #161616;
+}
+
+
 /* 반응형 (1024px 이하) */
 @media (max-width: 1024px) {
 
@@ -239,17 +254,59 @@
     }
 }
 
-
-/* 알약 호버 효과 */
-
-
-.sectionTitle.contact-lowercase .pill {
-    transition: all 0.3s ease;
-    cursor: pointer;
-    text-transform: lowercase;
+@media (max-width: 1400px) {
+    .sectionTitle .pill {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
 }
 
-.sectionTitle.contact-lowercase .pill:hover {
-    background-color: #fff;
-    color: #161616;
+/* 768px 이하 (모바일 최적화) */
+@media (max-width: 768px) {
+    .inner {
+        padding: 60px 20px;
+        /* 좌우 패딩 축소 */
+    }
+
+    .big-title-1,
+    .big-title-2,
+    .big-title-3,
+    .big-title-4 {
+        font-size: 14vw;
+        /* 모바일에서 조금 더 크게 */
+    }
+
+    .sectionTitle .pill {
+        font-size: 14px;
+        padding: 4px 10px;
+    }
+}
+
+
+
+@media (max-width: 500px) {
+
+    .big-title-1,
+    .big-title-2,
+    .big-title-3,
+    .big-title-4 {
+        /* 170px은 1024px 화면에서 MYEONGJIN(9글자)이 들어가기에 너무 커서 줄바꿈됨 */
+        /* 화면 꽉 차게 하려면 vw 단위 사용 추천 (약 13~14vw) */
+        font-size: 13vw;
+        line-height: 0.9;
+    }
+
+    /* 첫 번째 알약 (Top) */
+    .left-2 .pill {
+        top: -200%;
+        /* 섹션 최상단에서 40px */
+        bottom: auto;
+    }
+
+    /* 두 번째 알약 (Bottom) */
+    .right-1 .pill {
+        bottom: -220%;
+        /* 섹션 최하단에서 40px */
+        top: auto;
+    }
 }

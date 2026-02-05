@@ -7,6 +7,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 const HeaderFixed = () => {
     const headerRef = useRef(null);
+    const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+    const [isWhite, setIsWhite] = React.useState(false);
 
     useEffect(() => {
         // 이미지나 내부 요소가 모두 로드된 후 실행되도록 약간의 지연을 줍니다.
@@ -20,11 +22,9 @@ const HeaderFixed = () => {
                     start: "top 78px",
                     end: "bottom 78px",
                     onEnter: () => {
-                        console.log(`Enter: ${section.dataset.theme}`); // 디버깅용
                         updateTheme(section.dataset.theme);
                     },
                     onEnterBack: () => {
-                        console.log(`EnterBack: ${section.dataset.theme}`); // 디버깅용
                         updateTheme(section.dataset.theme);
                     },
                     onRefresh: (self) => {
@@ -35,11 +35,11 @@ const HeaderFixed = () => {
 
             function updateTheme(theme) {
                 if (theme === 'white') {
-                    headerRef.current.classList.add('on-white');
+                    setIsWhite(true);
                     root.style.setProperty('--scrollbar-track', '#ffffff');
                     root.style.setProperty('--scrollbar-thumb', '#161616');
                 } else {
-                    headerRef.current.classList.remove('on-white');
+                    setIsWhite(false);
                     root.style.setProperty('--scrollbar-track', '#161616');
                     root.style.setProperty('--scrollbar-thumb', '#ffffff');
                 }
@@ -55,18 +55,36 @@ const HeaderFixed = () => {
         };
     }, []);
 
+    const toggleMenu = () => {
+        setIsMenuOpen(!isMenuOpen);
+    };
+
+    // 메뉴 항목 클릭 시 메뉴 닫기
+    const handleLinkClick = () => {
+        setIsMenuOpen(false);
+    };
+
     return (
-        <header className="header-fixed" ref={headerRef}>
-            <div className="logo"><a href="#hero">PRESENT PORTFOLIO</a></div>
-            <nav>
+        <header
+            className={`header-fixed ${isMenuOpen ? 'menu-open' : ''} ${isWhite ? 'on-white' : ''}`}
+            ref={headerRef}
+        >
+            <div className="logo"><a href="#hero" onClick={handleLinkClick}>PRESENT PORTFOLIO</a></div>
+
+            <div className="hamburger" onClick={toggleMenu}>
+                <span></span>
+                <span></span>
+            </div>
+
+            <nav className={isMenuOpen ? 'active' : ''}>
                 <ul>
-                    <li><a href="#hero">HERO</a></li>
-                    <li><a href="#about">ABOUT</a></li>
-                    <li><a href="#skills">SKILLS</a></li>
-                    <li><a href="#works">WORKS</a></li>
-                    <li><a href="#hobby">HOBBY</a></li>
-                    <li><a href="#quick-answer">Q&A</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
+                    <li><a href="#hero" onClick={handleLinkClick}>HERO</a></li>
+                    <li><a href="#about" onClick={handleLinkClick}>ABOUT</a></li>
+                    <li><a href="#skills" onClick={handleLinkClick}>SKILLS</a></li>
+                    <li><a href="#works" onClick={handleLinkClick}>WORKS</a></li>
+                    <li><a href="#hobby" onClick={handleLinkClick}>HOBBY</a></li>
+                    <li><a href="#quick-answer" onClick={handleLinkClick}>Q&A</a></li>
+                    <li><a href="#contact" onClick={handleLinkClick}>CONTACT</a></li>
                 </ul>
             </nav>
         </header>

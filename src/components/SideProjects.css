@@ -147,6 +147,15 @@
 }
 
 /* 반응형 */
+@media (max-width: 1400px) {
+
+    .project-tag,
+    .image-hover-overlay span {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+}
+
 @media (max-width: 768px) {
     .projects-grid {
         grid-template-columns: 1fr;
@@ -154,11 +163,23 @@
     }
 
     .side-projects-inner {
-        padding: 0 24px;
+        padding: 0 20px;
     }
 
     .project-card:nth-child(1),
     .project-card:nth-child(2) {
         margin-top: 0;
+    }
+
+    /* 폰트 사이즈 최적화 */
+    .side-projects .project-description {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .project-tag,
+    .image-hover-overlay span {
+        font-size: 14px;
+        padding: 4px 10px;
     }
 }

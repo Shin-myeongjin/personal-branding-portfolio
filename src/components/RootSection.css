@@ -155,3 +155,22 @@
     transform: scale(1.1);
     /* 이미지 확대 효과 */
 }
+
+/* 반응형 */
+@media (max-width: 1400px) {
+
+    .tag,
+    .hover-overlay span {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .tag,
+    .hover-overlay span {
+        font-size: 14px;
+        padding: 4px 10px;
+    }
+}

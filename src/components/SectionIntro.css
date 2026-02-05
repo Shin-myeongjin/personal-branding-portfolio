@@ -73,6 +73,13 @@
 }
 
 /* 반응형 */
+@media (max-width: 1400px) {
+    .intro-pill {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+}
+
 @media (max-width: 768px) {
     .intro-title {
         font-size: 36px;
@@ -88,6 +95,6 @@
 
     .intro-pill {
         font-size: 14px;
-        padding: 6px 18px;
+        padding: 4px 10px;
     }
 }

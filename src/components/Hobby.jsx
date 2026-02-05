@@ -23,8 +23,10 @@ const Hobby = () => {
                 (windowHeight - imageRect.top) / (windowHeight * 1.2)
             ));
 
-            // 스크롤 진행도에 따라 좌우로 이동 (0 ~ 700px)
-            const moveDistance = scrollProgress * 500;
+            // 스크롤 진행도에 따라 좌우로 이동 (모바일은 150px, PC는 500px)
+            const isMobile = window.innerWidth <= 768;
+            const maxDistance = isMobile ? 150 : 500;
+            const moveDistance = scrollProgress * maxDistance;
 
             // MY는 왼쪽으로, HOBBY는 오른쪽으로
             myRef.current.style.transform = `translateX(-${moveDistance}px)`;

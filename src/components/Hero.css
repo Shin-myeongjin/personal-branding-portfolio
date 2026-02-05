@@ -229,3 +229,19 @@
         padding: 4px 12px;
     }
 }
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 11vw;
+        /* 9글자(PORTFOLIO)가 한 줄에 들어오도록 축소 */
+    }
+
+    .designer-name {
+        font-size: 18px;
+    }
+
+    .portfolio-pill {
+        font-size: 14px;
+        padding: 4px 10px;
+    }
+}
