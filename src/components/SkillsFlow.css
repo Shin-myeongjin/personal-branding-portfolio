@@ -327,6 +327,13 @@
         min-height: 220vh;
     }
 
+    /* 930px 이하에서는 스크롤 감지 없이 항상 채워진 상태 유지 */
+    .progress-circle {
+        stroke-dashoffset: calc(282.743px * (1 - var(--target-level) / 100)) !important;
+        transition: none !important;
+        /* 애니메이션 제거하고 즉시 적용 */
+    }
+
     .skills-title {
         font-size: 60px;
         margin-bottom: 24px;
