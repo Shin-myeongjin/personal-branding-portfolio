@@ -149,7 +149,7 @@ const Hero = () => {
     return (
         <section id="hero" className="hero" ref={containerRef}>
             <div className="video-background">
-                <video auㄱtoPlay loop muted playsInline>
+                <video autoPlay loop muted playsInline>
                     <source src="/video/bg-video.mp4" type="video/mp4" />
                 </video>
                 <div className="overlay"></div>
