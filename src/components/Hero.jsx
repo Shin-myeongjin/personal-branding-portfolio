@@ -15,6 +15,9 @@ const Hero = () => {
 
     // 새로고침/마운트 시 강제로 스크롤 최상단 이동
     useLayoutEffect(() => {
+        // 부드러운 스크롤 임시 비활성화 (즉시 이동을 위해)
+        document.documentElement.style.scrollBehavior = 'auto';
+
         // 즉시 스크롤 최상단으로 이동
         window.scrollTo(0, 0);
         document.documentElement.scrollTop = 0;
@@ -23,23 +26,18 @@ const Hero = () => {
         if ('scrollRestoration' in window.history) {
             window.history.scrollRestoration = 'manual';
         }
-    }, []);
 
-    useEffect(() => {
-        // 추가 보험: 컴포넌트 마운트 후에도 한 번 더 실행
-        const scrollToTop = () => {
-            window.scrollTo(0, 0);
-            document.documentElement.scrollTop = 0;
-            document.body.scrollTop = 0;
-        };
-
-        scrollToTop();
-
-        // 약간의 지연 후에도 한 번 더 실행 (브라우저가 스크롤 복원을 시도하는 경우 대비)
-        const timer = setTimeout(scrollToTop, 100);
+        // 약간의 지연 후 부드러운 스크롤 설정 복구 및 한 번 더 상단 이동 확인
+        // HeaderFixed의 refresh가 500ms에 있으므로 그 이후에 복구
+        const timer = setTimeout(() => {
+            window.scrollTo(0, 0); // 혹시 밀렸을 경우 대비 한 번 더
+            document.documentElement.style.scrollBehavior = ''; // CSS 설정으로 복귀
+        }, 600);
 
         return () => clearTimeout(timer);
     }, []);
+
+    // useEffect의 추가 스크롤 로직은 useLayoutEffect로 통합하여 제거
 
     useEffect(() => {
         const ctx = gsap.context(() => {

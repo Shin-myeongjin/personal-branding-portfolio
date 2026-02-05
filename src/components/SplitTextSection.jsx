@@ -45,21 +45,22 @@ function SplitTextSection({
         const right2 = right2Ref.current;
 
         // 초기 상태 설정
-        gsap.set([left1, left2], { x: 200, opacity: 0 }); // 오른쪽에서
-        gsap.set([right1, right2], { x: -200, opacity: 0 }); // 왼쪽에서
+        gsap.set([left1, left2], { x: 0, opacity: 1 }); // 애니메이션 비활성화 - 바로 표시
+        gsap.set([right1, right2], { x: 0, opacity: 1 }); // 애니메이션 비활성화 - 바로 표시
 
         // 알약들 초기 상태
         const pills = section.querySelectorAll('.pill');
         gsap.set(pills, {
-            scale: 0,
-            opacity: 0
+            scale: 1,
+            opacity: 1
         });
 
+        /* 애니메이션 임시 비활성화 - 나중에 활성화 예정
         // ScrollTrigger 애니메이션
         const tl = gsap.timeline({
             scrollTrigger: {
                 trigger: section,
-                start: 'top 90%', // 섹션 하단이 화면 95% 지점에 닿을 때
+                start: 'top 90%',
                 toggleActions: 'play none none reverse'
             }
         });
@@ -76,7 +77,7 @@ function SplitTextSection({
                 opacity: 1,
                 duration: 0.4,
                 ease: 'power3.out'
-            }, '-=0.3') // 0.3초 겹침
+            }, '-=0.3')
             .to(right1, {
                 x: 0,
                 opacity: 1,
@@ -100,6 +101,7 @@ function SplitTextSection({
         return () => {
             tl.kill();
         };
+        */
     }, []);
 
     return (

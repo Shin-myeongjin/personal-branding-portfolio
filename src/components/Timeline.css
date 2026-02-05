@@ -1,0 +1,174 @@
+.timeline-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 100vw;
+    /* 뷰포트 너비 제한 */
+    background: #161616;
+    overflow-x: clip;
+    /* 가로 스크롤만 차단 */
+    overflow-y: visible;
+    /* 세로는 정상 */
+}
+
+.timeline-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: visible;
+}
+
+.timeline-track {
+    display: flex;
+    width: max-content;
+    height: 100vh;
+}
+
+/* 타임라인 아이템 */
+.timeline-item {
+    min-width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+}
+
+.timeline-content {
+    max-width: 600px;
+}
+
+.timeline-tag {
+    display: inline-block;
+    padding: 6px 18px;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 50px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #fff;
+    margin-bottom: 7px;
+    letter-spacing: -0.02em;
+
+}
+
+.timeline-year {
+    font-size: clamp(60px, 10vw, 120px);
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 50px 0;
+    line-height: 1;
+}
+
+.timeline-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: pre-line;
+}
+
+/* NOW 섹션 */
+.now-section {
+    min-width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    text-align: center;
+
+}
+
+.now-title {
+    font-size: clamp(80px, 15vw, 200px);
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.now-description {
+    font-size: 16px;
+    line-height: 132%;
+    color: rgba(255, 255, 255, 0.8)
+}
+
+/* SVG 배경 경로 */
+.timeline-path {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: calc(100vw * 7);
+    /* 7개 아이템 (6개 연도 + NOW) */
+    height: 100%;
+    max-height: 657px;
+    /* 새 viewBox 높이에 맞춤 */
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.6;
+}
+
+.timeline-path path {
+    stroke: white;
+    stroke-width: 3;
+    fill: none;
+    vector-effect: non-scaling-stroke;
+}
+
+/* 각 타임라인 아이템 세로 위치 조정 (선의 곡선에 맞춤) */
+.timeline-item:nth-child(1) {
+    /* 2000 - 선이 중간 높이 */
+    align-items: center;
+}
+
+.timeline-item:nth-child(2) {
+    /* 2016 - 선이 올라감 */
+    align-items: flex-end;
+    padding-bottom: 10vh;
+}
+
+.timeline-item:nth-child(3) {
+    /* 2019 - 선이 내려감 */
+    align-items: flex-start;
+    padding-top: 20vh;
+}
+
+.timeline-item:nth-child(4) {
+    /* 2020-23 - 선이 중간으로 */
+    align-items: flex-end;
+    padding-bottom: 8vh;
+}
+
+.timeline-item:nth-child(5) {
+    /* 2025 - 선이 올라감 */
+    align-items: flex-start;
+    padding-top: 30vh;
+}
+
+.timeline-item:nth-child(6) {
+    /* 2025.08 - 선이 내려감 */
+    align-items: flex-end;
+    padding-bottom: 10vh;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .timeline-content {
+        max-width: 90%;
+    }
+
+    .timeline-tag {
+        font-size: 12px;
+        padding: 6px 16px;
+    }
+
+    .timeline-description {
+        font-size: 14px;
+    }
+
+    .now-description {
+        font-size: 14px;
+    }
+}
