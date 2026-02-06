@@ -43,65 +43,46 @@ function SplitTextSection({
         const left2 = left2Ref.current;
         const right1 = right1Ref.current;
         const right2 = right2Ref.current;
-
-        // 초기 상태 설정
-        gsap.set([left1, left2], { x: 0, opacity: 1 }); // 애니메이션 비활성화 - 바로 표시
-        gsap.set([right1, right2], { x: 0, opacity: 1 }); // 애니메이션 비활성화 - 바로 표시
-
-        // 알약들 초기 상태
         const pills = section.querySelectorAll('.pill');
-        gsap.set(pills, {
-            scale: 1,
-            opacity: 1
-        });
 
-        /* 애니메이션 임시 비활성화 - 나중에 활성화 예정
-        // ScrollTrigger 애니메이션
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                start: 'top 90%',
-                toggleActions: 'play none none reverse'
-            }
-        });
+        // GSAP Context 사용 (Clean-up 용이)
+        let ctx = gsap.context(() => {
+            // 초기 상태 설정
+            // 왼쪽 텍스트들 -> 오른쪽에서 약간만 이동 (x: 100px) - 은은하게
+            gsap.set([left1, left2], { x: 150, opacity: 0 });
+            // 오른쪽 텍스트들 -> 왼쪽에서 약간만 이동 (x: -100px) - 은은하게
+            gsap.set([right1, right2], { x: -150, opacity: 0 });
+            // 알약들 -> 작게 시작 (Scale 0)
+            gsap.set(pills, { autoAlpha: 0, scale: 0 });
 
-        // 순차 애니메이션 (빠르게)
-        tl.to(left1, {
-            x: 0,
-            opacity: 1,
-            duration: 0.4,
-            ease: 'power3.out'
-        })
-            .to(left2, {
-                x: 0,
-                opacity: 1,
-                duration: 0.4,
-                ease: 'power3.out'
-            }, '-=0.3')
-            .to(right1, {
-                x: 0,
-                opacity: 1,
-                duration: 0.4,
-                ease: 'power3.out'
-            }, '-=0.3')
-            .to(right2, {
-                x: 0,
-                opacity: 1,
-                duration: 0.4,
-                ease: 'power3.out'
-            }, '-=0.3')
-            .to(pills, {
-                scale: 1,
-                opacity: 1,
-                duration: 0.3,
-                stagger: 0.05,
-                ease: 'back.out(1.7)'
-            }, '-=0.2');
+            // ScrollTrigger 타임라인
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: section,
+                    start: 'top bottom', // 섹션 상단이 뷰포트 하단에 닿을 때 시작
+                    end: 'top top',    // 섹션 상단이 뷰포트 상단에 닿을 때 끝
+                    scrub: 1.5,        // 스크롤 동기화 (부드러움 증가)
+                }
+            });
 
-        return () => {
-            tl.kill();
-        };
-        */
+            // 순차 애니메이션 (부드럽게 겹치며 실행)
+            // 텍스트 애니메이션 (Subtle & Smooth)
+            tl.to(left1, { x: 0, opacity: 1, duration: 2, ease: 'power2.out' })
+                .to(left2, { x: 0, opacity: 1, duration: 2, ease: 'power2.out' }, "<0.2")
+                .to(right1, { x: 0, opacity: 1, duration: 2, ease: 'power2.out' }, "<0.2")
+                .to(right2, { x: 0, opacity: 1, duration: 2, ease: 'power2.out' }, "<0.2")
+
+                // 알약 애니메이션 (Fast Pop!)
+                .to(pills, {
+                    autoAlpha: 1,
+                    scale: 1,
+                    duration: 0.6, // 텍스트보다 훨씬 짧고 빠르게
+                    ease: 'back.out(3)' // 강한 반동 (커졌다가 작아짐)
+                }, "-=0.5"); // 텍스트 거의 끝날 때쯤 등장
+
+        }, section);
+
+        return () => ctx.revert();
     }, []);
 
     return (
