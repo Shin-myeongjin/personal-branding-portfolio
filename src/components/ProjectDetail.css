@@ -81,6 +81,7 @@
     border-radius: 8px;
     cursor: pointer;
     max-width: 525px;
+    margin-bottom: 8px;
 }
 
 .project-thumbnail img {
@@ -156,7 +157,7 @@
 
 .project-description {
     font-size: 32px;
-    line-height: 1.2;
+    line-height: 132%;
     color: #333;
     margin: 0;
     white-space: pre-line;

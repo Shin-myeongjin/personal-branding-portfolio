@@ -70,7 +70,7 @@ function App() {
           uiImages={["/img/uiImages01-outbook.jpg", "/img/uiImages02-outbook.jpg"]}
 
           description="책을 읽고 단순한 기록을 넘어
-        스스로에게 성장의 기쁨을 선물하는,
+        스스로에게 성장의 기쁨을 선물하는
         나만의 지식 정원을 가꾸는 독서 플랫폼"
 
           // 링크 버튼 (a 태그)

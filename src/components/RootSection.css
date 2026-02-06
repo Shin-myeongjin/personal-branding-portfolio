@@ -174,4 +174,74 @@
         font-size: 14px;
         padding: 4px 10px;
     }
+
+    .project-info {
+        margin-top: 16px;
+    }
+
+    /* 모바일 레이아웃 재구성 */
+    .roots-section {
+        height: auto;
+        /* 고정 높이 해제 */
+        padding-bottom: 80px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* 텍스트 섹션: 스티키 해제하고 상단에 배치 */
+    .sticky-center {
+        position: relative;
+        height: auto;
+        padding: 80px 20px 40px;
+        top: 0;
+        transform: none;
+    }
+
+    .roots-title {
+        font-size: 32px;
+        margin-bottom: 12px;
+    }
+
+    .roots-desc {
+        font-size: 16px;
+        line-height: 1.5;
+        word-break: keep-all;
+    }
+
+    /* 박스 래퍼: 절대 위치 해제하고 흐름 따르기 */
+    .boxes-wrap {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        padding: 0 20px;
+    }
+
+    /* 좌우 라인 구분 없이 일렬 배치 */
+    .leftline,
+    .rightline {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+    }
+
+    /* 오른쪽 라인은 왼쪽 라인 끝난 뒤에 이어서 나옴 (간격 추가) */
+    .rightline {
+        margin-top: 40px;
+    }
+
+    /* 개별 아이템: 화면 꽉 차게 */
+    .project-item {
+        width: 100%;
+        margin-bottom: 0;
+        /* 기존 마진 제거 (gap으로 대체) */
+    }
+
+    .img_box {
+        height: auto;
+        aspect-ratio: 3 / 4;
+        /* 모바일에서 적절한 비율 */
+    }
 }

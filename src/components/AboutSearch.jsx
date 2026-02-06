@@ -1,9 +1,10 @@
 import React, { useRef, useEffect, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import './AboutSearch.css';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 function AboutSearch() {
     const containerRef = useRef(null);
@@ -11,6 +12,20 @@ function AboutSearch() {
     const [showCursor, setShowCursor] = useState(false);
     const [showButton, setShowButton] = useState(false);
     const [showPills, setShowPills] = useState(false);
+
+    const triggerRef = useRef(null);
+
+    const handleSearchClick = () => {
+        if (triggerRef.current) {
+            // 눌렀을 때 '검색 결과'가 뜨는 지점(1500px)보다 조금 더 뒤로 스크롤 이동
+            // duration을 줘서 부드럽게 스크롤되도록 함
+            gsap.to(window, {
+                scrollTo: triggerRef.current.start + 2000,
+                duration: 0.5,
+                ease: 'power3.out'
+            });
+        }
+    };
 
     useEffect(() => {
         const container = containerRef.current;
@@ -85,6 +100,8 @@ function AboutSearch() {
             }
         });
 
+        triggerRef.current = trigger;
+
         return () => {
             if (typingInterval) clearInterval(typingInterval);
             trigger.kill();
@@ -103,7 +120,7 @@ function AboutSearch() {
                 </div>
 
                 {showButton && (
-                    <button className="search-btn">
+                    <button className="search-btn" onClick={handleSearchClick}>
                         SEARCH
                     </button>
                 )}
