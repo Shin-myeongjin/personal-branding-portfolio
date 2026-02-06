@@ -214,7 +214,7 @@ function App() {
                 { text: "toletter", variant: "filled" },
                 { text: "2025", variant: "outline" }
               ],
-              description: "백엔드 개발자인 아버지와 함께 한\nUXUI 서브 프로젝트\nUXUI 직무에 확신을 갖게 해준 프로젝트"
+              description: "딱딱한 오늘의 운세를\n 아버지가 전하는 편지 컨셉으로 기획하여\n사용자에게 정서적 위로를 선물한 프로젝트"
             },
             {
               image: "/img/thumbnailImage-bincan.jpg",
@@ -223,7 +223,7 @@ function App() {
                 { text: "present", variant: "filled" },
                 { text: "2025", variant: "outline" }
               ],
-              description: "빈칸 단체전시 참여\n그동안 그려온 그림들을 하나의 점으로 묘사하여\n그 점들이 모여 계단을 오르는 사람의 모습을 만듬"
+              description: "선물과 현재라는 의미를 담아\n타인과 스스로에게 건넨 그림들을 하나의 점으로\n표현하고 계단을 오르는 사람을 형상화한 작품"
             }
           ]}
         />
