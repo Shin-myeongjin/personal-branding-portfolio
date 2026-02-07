@@ -75,7 +75,7 @@
 
 .hobby-silhouette {
     width: auto;
-    max-width: 60%;
+    max-width: 80%;
     height: auto;
     display: block;
     margin: 100vh auto 0;
@@ -113,5 +113,12 @@
     .hobby-button {
         font-size: 14px;
         padding: 4px 10px;
+    }
+
+    .hobby-silhouette {
+        max-width: 90%;
+        padding: 20px;
+        margin-top: 50vh;
+        /* 모바일에서는 위 여백도 줄임 */
     }
 }

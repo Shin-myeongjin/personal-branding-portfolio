@@ -130,6 +130,39 @@
 }
 
 /* 반응형 */
+@media (max-width: 1600px) {
+
+    /* 우측 목록 숨김 */
+    .clone-col-right {
+        display: none;
+    }
+
+    /* 왼쪽 목록 너비 확보 */
+    .clone-col-left {
+        width: 40%;
+    }
+
+    /* 헤더 타이틀 왼쪽 정렬 */
+    .clone-header-title {
+        justify-content: flex-start;
+    }
+
+    .clone-header-title span {
+        width: 40%;
+        text-align: left;
+    }
+
+    /* 이미지 뷰어 위치 및 크기 조정 */
+    .clone-image-viewer {
+        left: 65%;
+        /* 우측으로 이동 */
+        width: 45vw;
+        max-width: 600px;
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+}
+
 @media (max-width: 768px) {
     .clone-image-viewer {
         width: 320px;
@@ -139,11 +172,28 @@
 
     .clone-header-title span {
         width: 100%;
-        text-align: right;
+        text-align: left;
     }
 
     .clone-col-left,
     .clone-col-right {
         font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .clone-image-viewer {
+        left: auto;
+        right: 16px;
+        transform: translateY(-50%);
+        width: 180px;
+        /* 모바일에서 더 작게 */
+        height: auto;
+        aspect-ratio: 16 / 9;
+    }
+
+    .clone-col-left {
+        width: 50%;
+        /* 글자가 이미지에 가려지지 않도록 제한 */
     }
 }
