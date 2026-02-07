@@ -324,7 +324,7 @@
     }
 
     .skills-flow-section {
-        min-height: 220vh;
+        min-height: 300vh;
     }
 
     /* 930px 이하에서는 스크롤 감지 없이 항상 채워진 상태 유지 */
@@ -336,7 +336,7 @@
 
     .skills-title {
         font-size: 60px;
-        margin-bottom: 24px;
+        margin-bottom: 200px;
     }
 
     .skills-lists {

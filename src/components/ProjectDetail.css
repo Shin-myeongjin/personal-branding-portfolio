@@ -544,4 +544,26 @@
         width: 100%;
         max-width: 100%;
     }
+
+    /* 모바일에서 진행도 바 최적화 (요청사항 4번) */
+    .progress-bar {
+        height: 6px;
+        /* 두꺼운 바 -> 얇게 */
+        border-radius: 10px;
+    }
+
+    .progress-fill {
+        border-radius: 10px;
+    }
+
+    .progress-label,
+    .progress-value {
+        font-size: 14px;
+        min-width: 50px;
+        /* 라벨 너비 줄여서 바 공간 확보 */
+    }
+
+    .progress-value {
+        text-align: right;
+    }
 }
