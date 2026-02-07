@@ -209,7 +209,7 @@ function App() {
           projects={[
             {
               image: "/img/thumbnailImage-toletter.jpg",
-              link: "https://your-toletter-link.com",
+              link: "https://toletter.vercel.app/",
               tags: [
                 { text: "toletter", variant: "filled" },
                 { text: "2025", variant: "outline" }
