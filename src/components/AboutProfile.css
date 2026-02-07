@@ -133,10 +133,10 @@
     }
 
     .profile-image {
-        width: 70%;
+        width: 60%;
         order: 2;
         /* 2. 사진 */
-        margin-bottom: 40px;
+
     }
 
     .profile-content {
@@ -149,7 +149,7 @@
         /* 1. 타이틀 */
         font-size: 5.5vw;
         /* 45px @ 430px */
-        margin-bottom: 3.7vw;
+        margin-bottom: 1vw;
         /* 16px */
         text-align: center;
         width: 100%;
@@ -187,10 +187,10 @@
         order: 4;
         /* 4. 알약 */
         align-self: center;
-        font-size: 3.25vw;
+        font-size: 16px;
         /* 14px */
-        padding: 1vw 2.5vw;
-        /* 4px 10px */
+        padding: 4px 12px;
+
     }
 
     .bg-overlay {

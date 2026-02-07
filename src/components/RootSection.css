@@ -158,12 +158,80 @@
 }
 
 /* 반응형 */
+/* 반응형 */
+@media (max-width: 1600px) {
+
+    /* 스크롤 높이 및 Sticky 해제 */
+    .roots-section {
+        height: auto;
+        padding-bottom: 120px;
+    }
+
+    .sticky-center {
+        position: relative;
+        height: auto;
+        top: 0;
+        padding: 120px 20px 80px;
+        transform: none;
+    }
+
+    /* 박스 래퍼: 절대 위치 해제하고 흐름 따르기 */
+    .boxes-wrap {
+        position: relative;
+        padding: 0 60px;
+        gap: 60px;
+    }
+
+    /* 좌우 라인 패딩/마진 초기화 및 재설정 */
+    .leftline {
+        padding-left: 0;
+        margin-top: 0;
+    }
+
+    .rightline {
+        padding-right: 0;
+        margin-top: 500px;
+        /* 지그재그 효과 */
+    }
+
+    .project-item {
+        width: 100%;
+        margin-bottom: 100px;
+    }
+
+    .img_box {
+        height: auto;
+        aspect-ratio: 397 / 519;
+        /* 원본 비율 유지 */
+    }
+}
+
 @media (max-width: 1400px) {
 
     .tag,
     .hover-overlay span {
         font-size: 16px;
         padding: 4px 12px;
+    }
+
+    .boxes-wrap {
+        padding: 0 40px;
+        gap: 40px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .boxes-wrap {
+        padding: 0 20px;
+        gap: 20px;
+    }
+
+    .rightline {
+        margin-top: 400px;
+    }
+
+    .project-item {
+        margin-bottom: 80px;
     }
 }
 
