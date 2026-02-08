@@ -4,10 +4,11 @@
     position: relative;
     width: 100%;
     min-height: 500vh;
-    background-color: #161616;
+    background-color: transparent;
     padding-top: 50vh;
     overflow-x: clip;
     overflow-y: visible;
+    padding-bottom: 250px;
 }
 
 /* 중앙 고정 박스 */
@@ -26,7 +27,7 @@
 .skills-title {
     font-size: 120px;
     font-weight: 900;
-    color: #fff;
+    color: inherit;
     margin-bottom: 45px;
     letter-spacing: -0.02em;
 }
@@ -44,7 +45,8 @@
 .category-title {
     font-size: 22px;
     font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    color: inherit;
+    opacity: 0.6;
     margin-bottom: 24px;
     letter-spacing: -0.02em;
 }
@@ -58,7 +60,8 @@
 .skill-list li {
     font-size: 18px;
     font-weight: 300;
-    color: rgba(255, 255, 255, 0.5);
+    color: inherit;
+    opacity: 0.5;
     margin-bottom: 12px;
     letter-spacing: -0.02em;
 }

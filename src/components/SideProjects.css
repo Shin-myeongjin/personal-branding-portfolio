@@ -3,7 +3,8 @@
 .side-projects {
     position: relative;
     width: 100%;
-    background-color: #161616;
+    background-color: transparent;
+    /* body bg will show */
     padding: 180px 0;
     overflow-x: clip;
     /* 가로 스크롤 방지 */
@@ -29,7 +30,7 @@
     letter-spacing: -0.05em;
     text-transform: uppercase;
     margin: 0;
-    color: #fff;
+    color: inherit;
 }
 
 /* 2컬럼 그리드 */
@@ -142,7 +143,7 @@
     font-size: clamp(20px, 2.5vw, 32px);
     /* 부드러운 스케일링 */
     line-height: 132%;
-    color: #fff;
+    color: inherit;
     margin: 0;
     white-space: pre-line;
     letter-spacing: -0.05em;

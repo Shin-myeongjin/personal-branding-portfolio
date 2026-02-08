@@ -1,6 +1,7 @@
 /* 기본 레이아웃 */
 .portfolio-wrap {
-    background-color: #161616;
+    background-color: transparent;
+    /* body bg will show */
 }
 
 .roots-section {

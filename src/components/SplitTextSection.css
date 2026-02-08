@@ -11,15 +11,15 @@
     padding: 72px 0;
 }
 
-/* 배경색 */
+/* 배경색 - 투명 처리 (body 배경색 노출) */
 .sectionTitle.bg-black {
-    background-color: #161616;
-    color: #fff;
+    background-color: transparent;
+    color: inherit;
 }
 
 .sectionTitle.bg-white {
-    background-color: #fff;
-    color: #000;
+    background-color: transparent;
+    color: inherit;
 }
 
 /* 내부 컨테이너 - 양쪽 여백 47px */
