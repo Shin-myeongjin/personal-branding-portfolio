@@ -3,7 +3,8 @@
 .side-projects {
     position: relative;
     width: 100%;
-    background-color: #161616;
+    background-color: transparent;
+    /* body bg will show */
     padding: 180px 0;
     overflow-x: clip;
     /* 가로 스크롤 방지 */
@@ -29,7 +30,7 @@
     letter-spacing: -0.05em;
     text-transform: uppercase;
     margin: 0;
-    color: #fff;
+    color: inherit;
 }
 
 /* 2컬럼 그리드 */
@@ -139,9 +140,10 @@
 
 /* 설명 */
 .side-projects .project-description {
-    font-size: 32px;
-    line-height: 1.2;
-    color: #fff;
+    font-size: clamp(20px, 2.5vw, 32px);
+    /* 부드러운 스케일링 */
+    line-height: 132%;
+    color: inherit;
     margin: 0;
     white-space: pre-line;
     letter-spacing: -0.05em;
@@ -149,12 +151,74 @@
 }
 
 /* 반응형 */
+@media (max-width: 1600px) {
+    .side-projects-inner {
+        padding: 0 100px;
+    }
+
+    .projects-grid {
+        gap: 150px;
+    }
+
+    .project-card:nth-child(1) {
+        margin-top: 100px;
+    }
+
+    .project-card:nth-child(2) {
+        margin-top: 0900px;
+    }
+}
+
 @media (max-width: 1400px) {
 
     .project-tag,
     .image-hover-overlay span {
         font-size: 16px;
         padding: 4px 12px;
+    }
+
+    .side-projects-inner {
+        padding: 0 60px;
+    }
+
+    .projects-grid {
+        gap: 100px;
+    }
+
+    .project-card:nth-child(2) {
+        margin-top: 900px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .projects-grid {
+        gap: 60px;
+    }
+
+    .project-card:nth-child(2) {
+        margin-top: 800px;
+    }
+}
+
+@media (max-width: 1024px) {
+    .side-projects-inner {
+        padding: 0 30px;
+    }
+
+    .projects-grid {
+        gap: 40px;
+    }
+
+    .project-card:nth-child(1) {
+        margin-top: 60px;
+    }
+
+    .project-card:nth-child(2) {
+        margin-top: 800px;
+    }
+
+    .side-projects-title {
+        font-size: 32px;
     }
 }
 

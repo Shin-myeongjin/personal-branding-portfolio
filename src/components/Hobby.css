@@ -2,7 +2,8 @@
 
 .hobby-section {
     width: 100%;
-    background-color: #fff;
+    background-color: transparent;
+    /* body bg will show */
     overflow-x: clip;
     /* 가로 스크롤 방지 */
 }
@@ -40,7 +41,7 @@
     max-font-size: 200px;
     font-weight: 800;
     line-height: 1;
-    color: #000;
+    color: inherit;
     letter-spacing: -3px;
     text-align: center;
     transition: transform 0.3s ease-out;
@@ -50,7 +51,7 @@
 .hobby-description {
     font-size: 18px;
     line-height: 1.5;
-    color: #000;
+    color: inherit;
     margin-bottom: 44px;
     letter-spacing: -0.05em;
     transition: opacity 0.3s ease-out;
@@ -59,7 +60,8 @@
 .hobby-button {
     padding: 6px 18px;
     border: 1px solid currentColor;
-    background: transparent;
+    color: inherit;
+
     border-radius: 50px;
     font-size: 22px;
     font-weight: 400;
@@ -74,7 +76,7 @@
 
 .hobby-silhouette {
     width: auto;
-    max-width: 60%;
+    max-width: 80%;
     height: auto;
     display: block;
     margin: 100vh auto 0;
@@ -112,5 +114,12 @@
     .hobby-button {
         font-size: 14px;
         padding: 4px 10px;
+    }
+
+    .hobby-silhouette {
+        max-width: 90%;
+        padding: 20px;
+        margin-top: 50vh;
+        /* 모바일에서는 위 여백도 줄임 */
     }
 }

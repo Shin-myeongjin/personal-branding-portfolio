@@ -60,11 +60,11 @@ const Hobby = () => {
                         저에게 취미란 단순한 여가를 넘어, 더 나은 경험과 관점을 만들어 주며 저 스스로를 성장할 새로운 기회입니다.<br />
                         작업자로 살아가는 저만의 '선물' 같은 일상들로 지속되고 있습니다.
                     </p>
-                    <button className="hobby-button" ref={buttonRef}>MY PRESENTS</button>
+                    <p className="hobby-button" ref={buttonRef}>MY PRESENTS</p>
                 </div>
                 <img
                     ref={imageRef}
-                    src="/img/hobby_silhouette.png"
+                    src="/img/hobby_silhouette_high.png"
                     alt="Hobby Silhouette"
                     className="hobby-silhouette"
                 />

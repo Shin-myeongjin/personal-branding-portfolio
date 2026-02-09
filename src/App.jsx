@@ -16,10 +16,13 @@ import HobbyChange from './components/HobbyChange';
 import QuickAnswer from './components/QuickAnswer';
 import SkillsFlow from './components/SkillsFlow';
 import Timeline from './components/Timeline';
+import useThemeColor from './hooks/useThemeColor';
 
 import './index.css';
 
 function App() {
+  useThemeColor(); // 배경색 전환 훅 실행
+
   return (
     <>
       <HeaderFixed />
@@ -209,7 +212,7 @@ function App() {
           projects={[
             {
               image: "/img/thumbnailImage-toletter.jpg",
-              link: "https://your-toletter-link.com",
+              link: "https://toletter.vercel.app/",
               tags: [
                 { text: "toletter", variant: "filled" },
                 { text: "2025", variant: "outline" }

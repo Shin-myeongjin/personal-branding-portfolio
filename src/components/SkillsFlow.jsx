@@ -38,47 +38,47 @@ const SkillsFlow = () => {
         {
             id: 1,
             name: 'HTML',
-            level: 90,
+            level: 85,
             side: 'left',
             color: '#EF5927',  // HTML 오렌지
             toolName: 'Visual Studio Code',
-            description: '웹 접근성과 SEO를 고려한 시맨틱 마크업을 작성하며,\n다양한 웹 표준에 맞게 구조화합니다.'
+            description: '표준을 준수한 시멘틱 마크업으로 접근성과 SEO 최적화 구조를 설계합니다.'
         },
         {
             id: 2,
             name: 'CSS',
-            level: 85,
+            level: 80,
             side: 'right',
             color: '#659AC0',  // CSS 블루
             toolName: 'Visual Studio Code',
-            description: '반응형 디자인과 애니메이션을 구현하며,\nFlexbox와 Grid를 활용한 레이아웃을 작성합니다.'
+            description: '반응형과 애니메이션을 활용해 모든 기기에 최적화된 화면을 구현합니다.'
         },
         {
             id: 3,
             name: 'JS',
-            level: 80,
+            level: 55,
             side: 'left',
             color: '#E7BA1E',  // JS 옐로우
-            toolName: 'Visual Studio Code',
-            description: 'ES6+ 문법을 활용하여 인터랙티브한\n웹 경험을 구현합니다.'
+            toolName: 'Javascript',
+            description: 'AI 협업으로 복잡한 로직을 분석하고 동적 인터랙션을 구현합니다.'
         },
         {
             id: 4,
             name: 'FIGMA',
-            level: 95,
+            level: 90,
             side: 'right',
             color: '#0EC682',  // Figma 그린
             toolName: 'Figma',
-            description: 'UI/UX 디자인부터 프로토타이핑까지\n전 과정을 효율적으로 진행합니다.'
+            description: '디자인 시스템과 프로토타입으로 체계적이고 실질적인 UX를 설계합니다.'
         },
         {
             id: 5,
             name: 'XD',
-            level: 85,
+            level: 70,
             side: 'left',
             color: '#EF277E',  // XD 핑크
             toolName: 'Adobe XD',
-            description: '사용자 중심의 디자인과 프로토타입을\n제작합니다.'
+            description: '빠른 와이어프레임과 유연한 툴 연동으로 작업의 효율을 높입니다.'
         },
         {
             id: 6,
@@ -87,7 +87,7 @@ const SkillsFlow = () => {
             side: 'right',
             color: '#36A1F7',  // Photoshop 블루
             toolName: 'Photoshop',
-            description: '이미지 편집과 그래픽 디자인을 통해\n시각적 완성도를 높입니다.'
+            description: 'GTQ 1급 이미지 합성 능력으로 완성도를 높이고 목업 리소스를 제작합니다.'
         },
         {
             id: 7,
@@ -101,10 +101,10 @@ const SkillsFlow = () => {
         {
             id: 8,
             name: 'REACT',
-            level: 75,
+            level: 70,
             side: 'right',
             color: '#659AC0',  // React 시안
-            toolName: 'Visual Studio Code',
+            toolName: 'Google Antigravity',
             description: '컴포넌트 기반 개발로 재사용 가능한\nUI를 구축합니다.'
         },
         {
@@ -114,12 +114,12 @@ const SkillsFlow = () => {
             side: 'left',
             color: '#EF277E',  // GSAP 그린
             toolName: 'RHINO',
-            description: '부드럽고 인상적인 웹 애니메이션을\n구현합니다.'
+            description: '산업디자인 전공으로 3D 모델링으로 제품의 현태를 구현합니다.'
         },
         {
             id: 10,
             name: 'GEMINI',
-            level: 80,
+            level: 95,
             side: 'right',
             color: '#36A1F7',  // Google 블루
             toolName: 'Google Gemini',
@@ -128,11 +128,11 @@ const SkillsFlow = () => {
         {
             id: 11,
             name: 'MID',
-            level: 70,
+            level: 75,
             side: 'left',
             color: '#E7BA1E',  // Midjourney 시안
             toolName: 'Midjourney',
-            description: 'AI 이미지 생성으로 독창적인 비주얼\n콘텐츠를 제작합니다.'
+            description: 'AI 이미지와 영상 생성으로 시간을 단축하고 제품의 비주얼 퀄리티를 높입니다.'
         }
     ];
 

@@ -50,7 +50,7 @@
     padding: 6px 18px;
     border: 1px solid #000;
     border-radius: 50px;
-    background: transparent;
+    background: #fff;
     font-size: 22px;
     font-weight: 400;
     color: #000;
@@ -116,6 +116,73 @@
 }
 
 /* 반응형 */
+@media (max-width: 1024px) {
+    .hobby-fixed-center {
+        width: 100%;
+        padding: 60px 20px;
+        /* 박스 느낌 없이 자연스럽게 퍼지는 그라데이션 */
+        background: radial-gradient(closest-side, rgba(255, 255, 255, 0.9) 20%, rgba(255, 255, 255, 0) 100%);
+        backdrop-filter: none;
+        border-radius: 0;
+    }
+
+    .hobby-change-title {
+        font-size: 60px;
+        /* 요청하신 크기 */
+        margin-bottom: 10px;
+        text-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+        /* 추가적인 가독성 확보 */
+    }
+
+    .hobby-change-description {
+        font-size: 12px;
+        /* 요청하신 크기 */
+        color: #000;
+        margin-bottom: 30px;
+    }
+
+    /* 이미지가 중앙을 가로지르며 흐르도록 변경 */
+    .hobby-images-left,
+    .hobby-images-right {
+        width: 100%;
+        align-items: center;
+        padding: 100px 0;
+        margin-top: 0;
+        position: absolute;
+        top: 0;
+    }
+
+    .hobby-images-right {
+        top: 180px;
+    }
+
+    /* 이미지들이 불규칙하게 흩뿌려진 느낌 */
+    .hobby-images-left .hobby-image-box:nth-child(odd) {
+        transform: translateX(-20vw) rotate(-2deg);
+    }
+
+    .hobby-images-left .hobby-image-box:nth-child(even) {
+        transform: translateX(15vw) rotate(3deg);
+    }
+
+    .hobby-images-right .hobby-image-box:nth-child(odd) {
+        transform: translateX(20vw) rotate(2deg);
+    }
+
+    .hobby-images-right .hobby-image-box:nth-child(even) {
+        transform: translateX(-15vw) rotate(-3deg);
+    }
+
+    .hobby-image-box {
+        width: 40vw;
+        /* 요청하신 크기 */
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin-bottom: 100px;
+        opacity: 0.9;
+    }
+}
+
 @media (max-width: 1400px) {
     .hobby-change-button {
         font-size: 16px;
@@ -127,5 +194,9 @@
     .hobby-change-button {
         font-size: 14px;
         padding: 4px 10px;
+    }
+
+    .hobby-change-section {
+        min-height: 450vh;
     }
 }
