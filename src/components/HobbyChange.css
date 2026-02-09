@@ -117,6 +117,10 @@
 
 /* 반응형 */
 @media (max-width: 1024px) {
+    .hobby-change-section {
+        min-height: 520vh;
+    }
+
     .hobby-fixed-center {
         width: 100%;
         padding: 60px 20px;
@@ -174,7 +178,7 @@
     }
 
     .hobby-image-box {
-        width: 40vw;
+        width: 30vw;
         /* 요청하신 크기 */
         height: auto;
         aspect-ratio: 1 / 1;
@@ -197,6 +201,16 @@
     }
 
     .hobby-change-section {
-        min-height: 450vh;
+        min-height: 510vh;
+    }
+
+    .hobby-image-box {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .hobby-change-section {
+        min-height: 350vh;
     }
 }
