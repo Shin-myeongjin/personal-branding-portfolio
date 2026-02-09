@@ -148,14 +148,40 @@ const Hero = () => {
 
     const videoRef = useRef(null);
 
-    // 모바일 자동재생 정책 대응: video 엘리먼트에 직접 muted 설정 및 play 호출
+    // 모바일 자동재생 정책 대응: 강력한 강제 재생 로직
     useEffect(() => {
-        if (videoRef.current) {
-            videoRef.current.muted = true;
-            videoRef.current.play().catch(error => {
-                console.log("Video autoplay failed:", error);
+        const videoElement = videoRef.current;
+        if (!videoElement) return;
+
+        // 1. Muted 강제 설정 (DOM 프로퍼티 레벨)
+        videoElement.muted = true;
+        videoElement.setAttribute('muted', 'true');
+        videoElement.setAttribute('playsinline', 'true');
+
+        // 2. 재생 시도 함수
+        const attemptPlay = () => {
+            videoElement.play().catch(error => {
+                console.warn("Video autoplay blocked or failed:", error);
+                // 일부 모바일 브라우저는 사용자 인터랙션 없이는 강제 재생 불가할 수 있음
+                // 하지만 muted가 설정되어 있다면 대부분 허용됨
             });
+        };
+
+        // 3. 이벤트 리스너 등록 (로드 완료 시 재시도)
+        videoElement.addEventListener('loadedmetadata', attemptPlay);
+        videoElement.addEventListener('canplay', attemptPlay);
+        videoElement.addEventListener('suspend', attemptPlay); // 절전 모드 해제 시 등 대비
+
+        // 4. 즉시 실행 (이미 로드된 경우)
+        if (videoElement.readyState >= 1) {
+            attemptPlay();
         }
+
+        return () => {
+            videoElement.removeEventListener('loadedmetadata', attemptPlay);
+            videoElement.removeEventListener('canplay', attemptPlay);
+            videoElement.removeEventListener('suspend', attemptPlay);
+        };
     }, []);
 
     return (
@@ -167,8 +193,10 @@ const Hero = () => {
                     loop
                     muted
                     playsInline
-                    // 모바일 대응: muted 상태를 명확히 함
-                    defaultMuted
+                    preload="auto"
+                    // React 특성상 muted 속성이 DOM에 잘 전달되도록 명시
+                    width="100%"
+                    height="100%"
                 >
                     <source src="/video/bg-video.mp4" type="video/mp4" />
                 </video>
