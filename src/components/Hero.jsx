@@ -146,10 +146,30 @@ const Hero = () => {
         return () => ctx.revert();
     }, []);
 
+    const videoRef = useRef(null);
+
+    // 모바일 자동재생 정책 대응: video 엘리먼트에 직접 muted 설정 및 play 호출
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.muted = true;
+            videoRef.current.play().catch(error => {
+                console.log("Video autoplay failed:", error);
+            });
+        }
+    }, []);
+
     return (
         <section id="hero" className="hero" ref={containerRef}>
             <div className="video-background">
-                <video autoPlay loop muted playsInline>
+                <video
+                    ref={videoRef}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    // 모바일 대응: muted 상태를 명확히 함
+                    defaultMuted
+                >
                     <source src="/video/bg-video.mp4" type="video/mp4" />
                 </video>
                 <div className="overlay"></div>
