@@ -249,6 +249,10 @@
 }
 
 @media (max-width: 1200px) {
+    .skills-flow-section {
+        padding-bottom: 0px;
+    }
+
     .skills-cards-container {
         left: 0;
         width: 100%;

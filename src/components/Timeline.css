@@ -156,6 +156,14 @@
     padding-bottom: 10vh;
 }
 
+/* 반응형 */
+@media (max-width: 1400px) {
+    .timeline-tag {
+        font-size: 16px;
+        padding: 4px 12px;
+    }
+}
+
 @media (max-width: 1200px) {
     .timeline-wrapper {
         height: auto;
@@ -174,6 +182,7 @@
         transform: translate(0, 0) !important;
         /* GSAP 강제 해제 */
         position: relative;
+        --line-height: 0%;
     }
 
     /* 세로 타임라인 선 (SVG 대체) */
@@ -183,12 +192,14 @@
         top: 0;
         left: 50%;
         width: 2px;
-        height: 85%;
-        /* NOW 섹션 전까지만 그려지도록 길이 단축 */
+        height: var(--line-height, 0%);
+        /* GSAP으로 제어 */
         background: currentColor;
         opacity: 0.3;
         transform: translateX(-50%);
-        z-index: 0;
+        z-index: 1;
+        transition: height 0.1s linear;
+        pointer-events: none;
     }
 
     /* 가로형 SVG 숨김 */
@@ -199,13 +210,24 @@
     .timeline-item {
         min-width: 100%;
         height: auto;
-        padding: 60px 20px;
+        padding: 80px 20px !important;
         align-items: center !important;
         /* 가운데 정렬 */
         justify-content: center;
         text-align: center;
         position: relative;
         z-index: 1;
+    }
+
+    /* 가로 스크롤 모드의 개별 padding 무효화 */
+    .timeline-item:nth-child(1),
+    .timeline-item:nth-child(2),
+    .timeline-item:nth-child(3),
+    .timeline-item:nth-child(4),
+    .timeline-item:nth-child(5),
+    .timeline-item:nth-child(6) {
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
     }
 
     /* 타임라인 점 (Dot) 제거 */
@@ -250,13 +272,7 @@
     }
 }
 
-/* 반응형 */
-@media (max-width: 1400px) {
-    .timeline-tag {
-        font-size: 16px;
-        padding: 4px 12px;
-    }
-}
+
 
 @media (max-width: 768px) {
     .timeline-content {

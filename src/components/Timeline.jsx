@@ -59,6 +59,26 @@ const Timeline = () => {
             });
         });
 
+        // 세로 스크롤 모드 (1200px 이하)
+        mm.add("(max-width: 1200px)", () => {
+            // 세로 선 그리기 애니메이션
+            gsap.fromTo(track,
+                {
+                    '--line-height': '0%'
+                },
+                {
+                    '--line-height': '85%',
+                    ease: "none",
+                    scrollTrigger: {
+                        trigger: container,
+                        start: "top center",
+                        end: "80% center",
+                        scrub: 1,
+                    }
+                }
+            );
+        });
+
         return () => mm.revert();
     }, []);
 
