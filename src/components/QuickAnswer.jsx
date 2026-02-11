@@ -29,7 +29,7 @@ function QuickAnswer() {
     const [hoveredId, setHoveredId] = useState(null);
 
     return (
-        <section className="quick-answer-section">
+        <section className="quick-answer-section" id='qna'>
             <div className="quick-answer-tag">QUICK ANSWERS</div>
 
             <div className="faq-list">

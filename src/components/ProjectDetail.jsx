@@ -18,6 +18,7 @@ import './ProjectDetail.css';
  * - showProgress: 진행도 바 표시 여부 - 기본값: true
  * - additionalText: 진행도 바 대신 표시할 추가 텍스트
  * - showUIScreenshots: UI 스크린샷 섹션 표시 여부 - 기본값: true
+ * - hoverDescription: 작업사진 호버 시 표시할 설명 (선택적)
  */
 function ProjectDetail({
     titles = [],
@@ -32,7 +33,8 @@ function ProjectDetail({
     bgColor = 'light', // 'light' or 'dark'
     showProgress = true,
     additionalText = '',
-    showUIScreenshots = true
+    showUIScreenshots = true,
+    hoverDescription = null // 작업사진 호버 설명 (선택적)
 }) {
     return (
         <section className={`project-detail ${bgColor}`}>
@@ -96,6 +98,26 @@ function ProjectDetail({
                         {workingImage && (
                             <div className="working-photo">
                                 <img src={workingImage} alt="Working process" />
+
+                                {/* 호버 힌트 (항상 표시) */}
+                                {hoverDescription && (
+                                    <>
+                                        {/* 우측 상단 정보 아이콘 */}
+                                        <div className="working-photo-hint-icon">
+                                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
+                                                <path d="M12 16V12M12 8H12.01" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                                            </svg>
+                                        </div>
+
+                                        {/* 호버 시 전체 설명 오버레이 */}
+                                        <div className="working-photo-hover-overlay">
+                                            <div className="working-photo-description">
+                                                {hoverDescription}
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
                             </div>
                         )}
 
@@ -107,6 +129,13 @@ function ProjectDetail({
                                         {tag.text}
                                     </span>
                                 ))}
+                            </div>
+                        )}
+
+                        {/* 모바일용 설명 (768px 이하에서만 표시) */}
+                        {hoverDescription && (
+                            <div className="working-photo-mobile-description">
+                                {hoverDescription}
                             </div>
                         )}
 

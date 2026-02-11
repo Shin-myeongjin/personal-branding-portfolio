@@ -213,6 +213,13 @@
     /* Fluid width */
 }
 
+.working-photo {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
 .working-photo img {
     max-width: 654px;
     width: 100%;
@@ -220,6 +227,116 @@
     height: auto;
     display: block;
     border-radius: 8px;
+    transition: transform 0.5s ease;
+}
+
+/* 작업사진 호버 오버레이 */
+.working-photo-hover-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 3;
+    border-radius: 8px;
+    padding: 40px;
+}
+
+.working-photo-description {
+    color: #fff;
+    font-size: 16px;
+    line-height: 1.6;
+    white-space: pre-line;
+    text-align: left;
+    max-width: 100%;
+    overflow-y: auto;
+    max-height: 100%;
+}
+
+/* 우측 상단 정보 아이콘 */
+.working-photo-hint-icon {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s ease-in-out infinite;
+    transition: all 0.3s ease;
+}
+
+/* 펄스 애니메이션 */
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* 기본 오버레이 힌트 (항상 살짝 보임) */
+.working-photo-hint-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border-radius: 8px;
+    transition: opacity 0.3s ease;
+}
+
+.hint-text {
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+/* 호버 시 효과 */
+.working-photo:hover .working-photo-hover-overlay {
+    opacity: 1;
+}
+
+.working-photo:hover .working-photo-hint-overlay {
+    opacity: 0;
+}
+
+.working-photo:hover .working-photo-hint-icon {
+    opacity: 0;
+}
+
+.working-photo:hover img {
+    transform: scale(1.05);
+}
+
+/* 모바일용 설명 (기본적으로 숨김) */
+.working-photo-mobile-description {
+    display: none;
 }
 
 /* 추가 텍스트 (진행도 바 대신) */
@@ -532,8 +649,22 @@
     }
 
     /* 모바일에서는 호버 효과 제거 (버튼이 따로 있으므로) */
-    .thumbnail-hover-overlay {
+    .thumbnail-hover-overlay,
+    .working-photo-hover-overlay,
+    .working-photo-hint-overlay,
+    .working-photo-hint-icon {
         display: none !important;
+    }
+
+    /* 모바일에서 설명 표시 */
+    .working-photo-mobile-description {
+        display: block;
+        font-size: 14px;
+        line-height: 1.6;
+        color: inherit;
+        white-space: pre-line;
+        padding: 16px 0;
+        margin: 0;
     }
 
     /* 노트북 레이아웃 모바일 대응 */

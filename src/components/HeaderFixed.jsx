@@ -78,13 +78,35 @@ const HeaderFixed = () => {
 
             <nav className={isMenuOpen ? 'active' : ''}>
                 <ul>
-                    <li><a href="#hero" onClick={handleLinkClick}>HERO</a></li>
-                    <li><a href="#about" onClick={handleLinkClick}>ABOUT</a></li>
-                    <li><a href="#skills" onClick={handleLinkClick}>SKILLS</a></li>
-                    <li><a href="#works" onClick={handleLinkClick}>WORKS</a></li>
-                    <li><a href="#hobby" onClick={handleLinkClick}>HOBBY</a></li>
-                    <li><a href="#quick-answer" onClick={handleLinkClick}>Q&A</a></li>
-                    <li><a href="#contact" onClick={handleLinkClick}>CONTACT</a></li>
+                    <li className="has-dropdown">
+                        <a href="#about" onClick={handleLinkClick}>ABOUT</a>
+                        <ul className="dropdown">
+                            <li><a href="#concept" onClick={handleLinkClick}>CONCEPT</a></li>
+                            <li><a href="#profile" onClick={handleLinkClick}>PROFILE</a></li>
+                            <li><a href="#keyword" onClick={handleLinkClick}>KEYWORD</a></li>
+                            <li><a href="#skills" onClick={handleLinkClick}>SKILLS</a></li>
+                            <li><a href="#timeline" onClick={handleLinkClick}>TIMELINE</a></li>
+                        </ul>
+                    </li>
+                    <li className="has-dropdown">
+                        <a href="#works" onClick={handleLinkClick}>WORKS</a>
+                        <ul className="dropdown">
+                            <li><a href="#works" onClick={handleLinkClick}>UXUI</a></li>
+                            <li><a href="#industrial" onClick={handleLinkClick}>INDUSTRIAL</a></li>
+                            <li><a href="#clone-coding" onClick={handleLinkClick}>CLONE CODING</a></li>
+                            <li><a href="#side-project" onClick={handleLinkClick}>SIDE PROJECT</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#hobby" onClick={handleLinkClick}>HOBBY</a>
+                    </li>
+                    <li className="has-dropdown">
+                        <a href="#quick-answer" onClick={handleLinkClick}>CONTACT</a>
+                        <ul className="dropdown">
+                            <li><a href="#qna" onClick={handleLinkClick}>Q&A</a></li>
+                            <li><a href="#contact" onClick={handleLinkClick}>CONTACT</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </header>

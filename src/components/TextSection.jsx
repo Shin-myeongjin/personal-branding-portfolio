@@ -15,10 +15,11 @@ const TextSection = ({
     title,
     description,
     showArrow = false,
-    buttonText
+    buttonText,
+    id
 }) => {
     return (
-        <section className="text-section">
+        <section className="text-section" id={id}>
             <div className="text-content">
                 <h2 className="text-title">{title}</h2>
                 <p className="text-description">

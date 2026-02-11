@@ -42,6 +42,7 @@ function App() {
         <Keywords />
         <SkillsFlow />
         <TextSection
+          id="timeline"
           title="PRESENT STORY"
           description={[
             "더 나은 경험을 선물하기 위해 탐구된 성장의 기록입니다.",
@@ -93,6 +94,11 @@ function App() {
             { label: "기획", value: 100 },
             { label: "디자인", value: 100 }
           ]}
+
+          // 작업사진 호버 설명
+          hoverDescription="[잘한 점 및 배운 점]
+          
+부팀장으로서 Git 관리와 리액트 초기 세팅을 도맡아 팀원들이 개발에만 집중할 수 있는 환경을 만들었고, 한달이 안되는 빠듯한 기간임에도 AI를 영리하게 활용해 마감 내 완수하며 효율적인 협업 방식과 탄탄한 기본기의 중요성을 체감했습니다."
         />
         <ProjectDetail
           titles={[
@@ -127,6 +133,10 @@ function App() {
             { label: "디자인", value: 90 },
             { label: "퍼블리싱", value: 90 }
           ]}
+          // 작업사진 호버 설명
+          hoverDescription="[잘한 점 및 배운 점]
+          
+부팀장으로서 Git 관리와 리액트 초기 세팅을 도맡아 팀원들이 개발에만 집중할 수 있는 환경을 만들었고, 한달이 안되는 빠듯한 기간임에도 AI를 영리하게 활용해 마감 내 완수하며 효율적인 협업 방식과 탄탄한 기본기의 중요성을 체감했습니다."
         />
         <ProjectDetail
           titles={[
@@ -162,6 +172,10 @@ function App() {
             { label: "디자인", value: 90 },
             { label: "퍼블리싱", value: 90 }
           ]}
+          // 작업사진 호버 설명
+          hoverDescription="[잘한 점 및 배운 점]
+          
+부팀장으로서 Git 관리와 리액트 초기 세팅을 도맡아 팀원들이 개발에만 집중할 수 있는 환경을 만들었고, 한달이 안되는 빠듯한 기간임에도 AI를 영리하게 활용해 마감 내 완수하며 효율적인 협업 방식과 탄탄한 기본기의 중요성을 체감했습니다."
         />
       </div>
       <div data-theme="black">
@@ -172,9 +186,11 @@ function App() {
           rightBottom="kaywon uni"
           pillRight="SEARCH RESULT : 5 PROJECTS"
           bgColor="black"
+          id="industrial"
         />
         <RootSection />
         <TextSection
+          id="clone-coding"
           title="COMMUNICATION DESIGNER"
           description={[
             "개발자와 더 깊게 대화하기 위해 직접 코드를 두드리며 구조를 익혔습니다.",
@@ -203,6 +219,7 @@ function App() {
           rightBottom="WORKS"
           pillRight="SEARCH RESULT : SIDE PROJECTS"
           bgColor="black"
+          id="side-project"
         />
         <SideProjects
           titles={[

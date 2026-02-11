@@ -109,7 +109,7 @@ function AboutSearch() {
     }, []);
 
     return (
-        <section className="about-search" ref={containerRef}>
+        <section className="about-search" ref={containerRef} id='concept'>
             <div className="search-container">
                 <div className="search-bar">
                     <img src="/img/search-icon.svg" alt="search" className="search-icon" />

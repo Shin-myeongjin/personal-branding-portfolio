@@ -13,7 +13,7 @@ const RootSection = () => {
 
 
     return (
-        <div className="portfolio-wrap">
+        <div className="portfolio-wrap" >
 
             <section className="roots-section">
                 {/* 중앙 고정 텍스트 */}

@@ -3,7 +3,7 @@ import './AboutProfile.css';
 
 function AboutProfile() {
     return (
-        <section className="about-profile">
+        <section className="about-profile" id='profile'>
             <div className="profile-container">
                 {/* 왼쪽: 프로필 이미지 */}
                 <div className="profile-image">

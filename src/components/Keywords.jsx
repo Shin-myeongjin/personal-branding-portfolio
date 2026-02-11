@@ -60,7 +60,7 @@ const Keywords = () => {
     }, []);
 
     return (
-        <section ref={containerRef} className="keywords-section">
+        <section ref={containerRef} className="keywords-section" id="keyword">
             <div className="keyword-pill">MY KEYWORD</div>
 
             {keywords.map((keyword, index) => (
