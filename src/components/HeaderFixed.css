@@ -68,10 +68,11 @@
 .header-fixed nav .dropdown {
     position: absolute;
     top: 100%;
+    /* 헤더 하단에 딱 붙음 */
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 20px;
-    background-color: rgba(22, 22, 22, 0.95);
+    margin-top: 24px;
+    background-color: rgba(22, 22, 22, 0.98);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-radius: 8px;
@@ -118,7 +119,6 @@
 .header-fixed nav ul li.has-dropdown:hover .dropdown {
     opacity: 1;
     visibility: visible;
-    margin-top: 10px;
 }
 
 /* 햄버거 버튼 (기본 숨김) */
@@ -211,8 +211,8 @@
         width: 100%;
     }
 
-    /* 메인 메뉴 */
-    .header-fixed nav ul li.has-dropdown>a {
+    /* 메인 메뉴 (모든 항목 동일 크기) */
+    .header-fixed nav ul>li>a {
         font-size: 22px;
         font-weight: 700;
         margin-bottom: 0;

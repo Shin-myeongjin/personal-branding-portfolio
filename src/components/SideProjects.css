@@ -140,7 +140,7 @@
 
 /* 설명 */
 .side-projects .project-description {
-    font-size: clamp(20px, 2.5vw, 32px);
+    font-size: clamp(20px, 2.5vw, 28px);
     /* 부드러운 스케일링 */
     line-height: 132%;
     color: inherit;
