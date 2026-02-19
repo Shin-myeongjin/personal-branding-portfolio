@@ -70,7 +70,12 @@ function App() {
           ]}
 
           thumbnailImage="/img/thumbnailImag-outbook.jpg"
-          workingImage="/img/workingImage-outbook.jpg"
+          workingImages={[
+            "/img/workingImage-outbook.jpg",
+            "/img/workingImage-outbook2.jpg",
+            "/img/workingImage-outbook3.jpg",
+            "/img/workingImage-outbook4.jpg"
+          ]}
           uiImages={["/img/uiImages01-outbook.jpg", "/img/uiImages02-outbook.jpg"]}
 
           description="책을 읽고 단순한 기록을 넘어
@@ -111,7 +116,12 @@ function App() {
           ]}
 
           thumbnailImage="/img/thumbnailImage-dugout.jpg"
-          workingImage="/img/workingImage-dugout2.jpg"
+          workingImages={[
+            "/img/workingImage-dugout.jpg",
+            "/img/workingImage-dugout2.jpg",
+            "/img/workingImage-dugout3.jpg",
+            "/img/workingImage-dugout4.jpg"
+          ]}
           uiImages={["/img/uiImages01-dugout.jpg", "/img/uiImages02-dugout.jpg"]}
 
           description="팬을 '10번째 선수'로 정의하고, 
@@ -151,8 +161,12 @@ function App() {
           ]}
 
           thumbnailImage="/img/thumbnailImage-monami.jpg"
-          workingImage="/img/workingImage-monami.jpg"
-          uiImages={["/img/uimockup-monami.jpg"]}  // ← 이미지 1개로 변경
+          workingImages={[
+            "/img/workingImage-monami.jpg",
+            "/img/workingImage-monami2.jpg",
+            "/img/workingImage-monami3.jpg"
+          ]}
+          uiImages={["/img/uimockup-monami.jpg"]}
           uiLayout="laptop"
 
           description="쓰다에서 그리다로 경험을 확장하며, 

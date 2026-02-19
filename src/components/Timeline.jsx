@@ -152,9 +152,9 @@ const Timeline = () => {
                     <div className="now-section">
                         <h2 className="now-title">NOW</h2>
                         <p className="now-description">
-                            지금까지의 성장은 사용자에게 <br />더 나은 경험을 선물하기 위한 과정이었습니다.
+                            지금까지의 성장은 사용자에게 더 나은 경험을 선물하기 위한 과정이었습니다.
                             <br />
-                            그 고민의 결과물인 UX/UI 프로젝트들을<br /> 지금부터 하나씩 소개합니다.
+                            그 고민의 결과물인 UX/UI 프로젝트들을 지금부터 하나씩 소개합니다.
                         </p>
                     </div>
                 </div>
