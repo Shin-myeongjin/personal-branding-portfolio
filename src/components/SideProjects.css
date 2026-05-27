@@ -19,7 +19,7 @@
 /* 제목 영역 */
 .side-projects-header {
     text-align: right;
-    margin-bottom: 40px;
+    margin-bottom: 120px;
 }
 
 .side-projects-title {
@@ -33,11 +33,18 @@
     color: inherit;
 }
 
-/* 2컬럼 그리드 */
+/* 2컬럼 레이아웃 (Grid 기반) */
 .projects-grid {
+    /* ✨ 여기서 위아래 엇갈리는 간격을 조절하세요! ✨ */
+    --vertical-gap: 1000px;
+
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 300px;
+    column-gap: 400px;
+    /* 좌우 간격은 여기서 조절하세요 */
+    row-gap: 0;
+    padding-bottom: calc(var(--vertical-gap) / 2);
+    /* 마지막 아이템 잘림 방지 */
 }
 
 /* 개별 프로젝트 카드 */
@@ -45,16 +52,25 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
+    margin-bottom: var(--vertical-gap);
+    padding-bottom: 0;
+    /* 기존 패딩 방식 제거 (카드 크기 늘어남 방지) */
 }
 
-/* 왼쪽 카드 - 위쪽 시작 */
-.project-card:nth-child(1) {
-    margin-top: 182px;
+/* 왼쪽 컬럼 (홀수 번째) - 기본 위치 */
+.project-card:nth-child(odd) {
+    margin-top: 0;
 }
 
-/* 오른쪽 카드 - 아래쪽 시작 */
-.project-card:nth-child(2) {
-    margin-top: 1060px;
+/* 오른쪽 컬럼 (짝수 번째) - 수학적으로 완벽한 지그재그 중앙 정렬 계산 */
+.project-card:nth-child(even) {
+    margin-top: 0;
+    transform: translateY(calc(50% + (var(--vertical-gap) / 2)));
+}
+
+/* 맨 마지막 아이템들이 불필요한 하단 여백을 만들지 않도록 제거 */
+.project-card:last-child {
+    margin-bottom: 0;
 }
 
 /* 이미지 */
@@ -157,15 +173,8 @@
     }
 
     .projects-grid {
-        gap: 150px;
-    }
-
-    .project-card:nth-child(1) {
-        margin-top: 100px;
-    }
-
-    .project-card:nth-child(2) {
-        margin-top: 0900px;
+        column-gap: 200px;
+        --vertical-gap: 200px;
     }
 }
 
@@ -182,21 +191,15 @@
     }
 
     .projects-grid {
-        gap: 100px;
-    }
-
-    .project-card:nth-child(2) {
-        margin-top: 900px;
+        column-gap: 150px;
+        --vertical-gap: 150px;
     }
 }
 
 @media (max-width: 1200px) {
     .projects-grid {
-        gap: 60px;
-    }
-
-    .project-card:nth-child(2) {
-        margin-top: 800px;
+        column-gap: 100px;
+        --vertical-gap: 100px;
     }
 }
 
@@ -206,15 +209,8 @@
     }
 
     .projects-grid {
-        gap: 40px;
-    }
-
-    .project-card:nth-child(1) {
-        margin-top: 60px;
-    }
-
-    .project-card:nth-child(2) {
-        margin-top: 800px;
+        column-gap: 60px;
+        --vertical-gap: 100px;
     }
 
     .side-projects-title {
@@ -230,15 +226,22 @@
     .projects-grid {
         grid-template-columns: 1fr;
         gap: 60px;
+        /* 모바일에서는 다시 표준 gap 사용 */
+        padding-bottom: 0;
     }
 
     .side-projects-inner {
         padding: 0 20px;
     }
 
-    .project-card:nth-child(1),
-    .project-card:nth-child(2) {
+    .project-card {
+        margin-bottom: 0;
+    }
+
+    .project-card:nth-child(odd),
+    .project-card:nth-child(even) {
         margin-top: 0;
+        transform: none;
     }
 
     /* 폰트 사이즈 최적화 */

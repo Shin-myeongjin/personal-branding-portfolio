@@ -265,6 +265,33 @@ function App() {
                 { text: "2025", variant: "outline" }
               ],
               description: "선물과 현재라는 의미를 담아\n타인과 스스로에게 건넨 그림들을 하나의 점으로\n표현하고 계단을 오르는 사람을 형상화한 작품"
+            },
+            {
+              image: "/img/thumbnailImage-nostress.jpg",
+              link: "https://nostress-puce.vercel.app/",
+              tags: [
+                { text: "nostres", variant: "filled" },
+                { text: "2026", variant: "outline" }
+              ],
+              description: "오늘 받은 스트레스를 풀 수 있는 \n위로와 재미를 기반으로 제작한 \n스트레스 관리 앱"
+            },
+            {
+              image: "/img/thumbnailImage-bookcode.jpg",
+              link: "https://bookcode-swart.vercel.app/",
+              tags: [
+                { text: "bookcode", variant: "filled" },
+                { text: "2026", variant: "outline" }
+              ],
+              description: "읽은 책을 나만의 영수증으로 기록하고\n 저장해서 SNS에 공유할 수 있는 서비스"
+            },
+            {
+              image: "/img/thumbnailImage-timer.jpg",
+              link: "https://hora-timer.vercel.app/",
+              tags: [
+                { text: "60min timer", variant: "filled" },
+                { text: "2026", variant: "outline" }
+              ],
+              description: "60분 동안 집중할 수 있도록 \n도와주는 웹용 구글 타이머"
             }
           ]}
         />

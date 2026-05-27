@@ -34,9 +34,17 @@ const useThemeColor = () => {
             });
         });
 
-        // Cleanup function (optional, but good practice)
+        // 요소들의 크기 변화(이미지 로딩, 데이터 추가 등) 감지하여 스크롤 위치 재계산
+        const resizeObserver = new ResizeObserver(() => {
+            ScrollTrigger.refresh();
+        });
+        
+        resizeObserver.observe(document.body);
+
+        // Cleanup function
         return () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            resizeObserver.disconnect();
         };
     }, []);
 };
